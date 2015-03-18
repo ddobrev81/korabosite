@@ -1,0 +1,14 @@
+name = wows_CT_skill
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-skill-body
+features[field_instance][] = node-skill-field_effects
+features[field_instance][] = node-skill-field_skill_cost
+features[field_instance][] = node-skill-field_skill_tier
+features[node][] = skill
