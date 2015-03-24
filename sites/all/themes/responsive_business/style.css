@@ -82,7 +82,8 @@ header, hgroup, footer, section, article, aside {
 /* Body, Common Classes & Wrap */
 
 body {
-  background: #fff url(images/bg.png);
+  background: #fff url(images/18_NE_ice_islands.png) no-repeat;
+  background-size: cover;
   font-size: 13px;
   line-height: 1.7em;
   color: #555;
@@ -528,7 +529,7 @@ ul.flex-direction-nav {
 
 body.sidebar-first #content {
   float: left;
-  width: 70%;
+  width: 75%;
   overflow: hidden;
 }
 
@@ -566,7 +567,7 @@ body.sidebar-first #content {
 }
 
 #sidebar{
-  width: 25%;
+  width: 20%;
   float: right;
 }
 

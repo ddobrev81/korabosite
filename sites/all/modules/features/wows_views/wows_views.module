@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wows_views feature.
+ */
+
+include_once 'wows_views.features.inc';

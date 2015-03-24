@@ -9,6 +9,7 @@ dependencies[] = wows_field_bases
 features[features_api][] = api:2
 features[field_instance][] = node-skill-body
 features[field_instance][] = node-skill-field_effects
+features[field_instance][] = node-skill-field_icon
 features[field_instance][] = node-skill-field_skill_cost
 features[field_instance][] = node-skill-field_skill_tier
 features[node][] = skill

@@ -1,0 +1,17 @@
+name = wows_CT_module_engine
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = number
+dependencies[] = options
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-module_engine-body
+features[field_instance][] = node-module_engine-field_credit_cost
+features[field_instance][] = node-module_engine-field_experience_cost
+features[field_instance][] = node-module_engine-field_icon
+features[field_instance][] = node-module_engine-field_maximum_speed
+features[field_instance][] = node-module_engine-field_previous_module
+features[node][] = module_engine

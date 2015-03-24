@@ -1,0 +1,11 @@
+name = wows_pages
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = node_view__custom_node_view
+features[page_manager_pages][] = commander_skills
+features[page_manager_pages][] = ships
+features[page_manager_pages][] = tech_tree

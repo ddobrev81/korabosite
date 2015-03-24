@@ -179,9 +179,8 @@
 
       <div id="footer-bottom" class="clearfix">
         <div id="copyright" class="clearfix">
-          <?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <a href="<?php print $front_page; ?>"><?php print $site_name; ?></a>  //  
-          <?php print t('Theme by'); ?>  <a href="http://www.devsaran.com" target="_blank">Devsaran</a>
-        </div>
+          <?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <a href="<?php print $front_page; ?>"><?php print $site_name; ?></a>
+	</div>
         <div id="back-to-top" class="clearfix">
           <a href="#toplink">back up ↑</a>
         </div>

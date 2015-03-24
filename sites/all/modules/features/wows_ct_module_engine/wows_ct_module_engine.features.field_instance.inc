@@ -1,18 +1,18 @@
 <?php
 /**
  * @file
- * wows_ct_skill.features.field_instance.inc
+ * wows_ct_module_engine.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function wows_ct_skill_field_default_field_instances() {
+function wows_ct_module_engine_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-skill-body'
-  $field_instances['node-skill-body'] = array(
-    'bundle' => 'skill',
+  // Exported field_instance: 'node-module_engine-body'
+  $field_instances['node-module_engine-body'] = array(
+    'bundle' => 'module_engine',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -54,19 +54,24 @@ function wows_ct_skill_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-skill-field_effects'
-  $field_instances['node-skill-field_effects'] = array(
-    'bundle' => 'skill',
+  // Exported field_instance: 'node-module_engine-field_credit_cost'
+  $field_instances['node-module_engine-field_credit_cost'] = array(
+    'bundle' => 'module_engine',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -76,35 +81,86 @@ function wows_ct_skill_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_effects',
-    'label' => 'Effects',
+    'field_name' => 'field_credit_cost',
+    'label' => 'Credit cost',
     'required' => 1,
     'settings' => array(
-      'text_processing' => 0,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 32,
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 37,
     ),
   );
 
-  // Exported field_instance: 'node-skill-field_icon'
-  $field_instances['node-skill-field_icon'] = array(
-    'bundle' => 'skill',
+  // Exported field_instance: 'node-module_engine-field_experience_cost'
+  $field_instances['node-module_engine-field_experience_cost'] = array(
+    'bundle' => 'module_engine',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_experience_cost',
+    'label' => 'Experience cost',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 35,
+    ),
+  );
+
+  // Exported field_instance: 'node-module_engine-field_icon'
+  $field_instances['node-module_engine-field_icon'] = array(
+    'bundle' => 'module_engine',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -136,21 +192,22 @@ function wows_ct_skill_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 36,
+      'weight' => 33,
     ),
   );
 
-  // Exported field_instance: 'node-skill-field_skill_cost'
-  $field_instances['node-skill-field_skill_cost'] = array(
-    'bundle' => 'skill',
+  // Exported field_instance: 'node-module_engine-field_maximum_speed'
+  $field_instances['node-module_engine-field_maximum_speed'] = array(
+    'bundle' => 'module_engine',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 4,
       ),
       'teaser' => array(
@@ -161,35 +218,39 @@ function wows_ct_skill_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_skill_cost',
-    'label' => 'Skill cost',
-    'required' => 0,
+    'field_name' => 'field_maximum_speed',
+    'label' => 'Maximum Speed',
+    'required' => 1,
     'settings' => array(
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'text',
       'settings' => array(
-        'apply_chosen' => 1,
+        'size' => 60,
       ),
-      'type' => 'options_select',
-      'weight' => 34,
+      'type' => 'text_textfield',
+      'weight' => 38,
     ),
   );
 
-  // Exported field_instance: 'node-skill-field_skill_tier'
-  $field_instances['node-skill-field_skill_tier'] = array(
-    'bundle' => 'skill',
+  // Exported field_instance: 'node-module_engine-field_previous_module'
+  $field_instances['node-module_engine-field_previous_module'] = array(
+    'bundle' => 'module_engine',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -199,9 +260,9 @@ function wows_ct_skill_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_skill_tier',
-    'label' => 'Skill Tier',
-    'required' => 1,
+    'field_name' => 'field_previous_module',
+    'label' => 'Previous module',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -209,20 +270,21 @@ function wows_ct_skill_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'apply_chosen' => 1,
+        'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 39,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Effects');
+  t('Credit cost');
+  t('Experience cost');
   t('Icon');
-  t('Skill Tier');
-  t('Skill cost');
+  t('Maximum Speed');
+  t('Previous module');
 
   return $field_instances;
 }
