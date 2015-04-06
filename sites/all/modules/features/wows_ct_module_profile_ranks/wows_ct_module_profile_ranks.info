@@ -1,0 +1,13 @@
+name = wows_CT_module_profile_ranks
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = number
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-profile_ranks-body
+features[field_instance][] = node-profile_ranks-field_experience_cost
+features[field_instance][] = node-profile_ranks-field_icon
+features[node][] = profile_ranks

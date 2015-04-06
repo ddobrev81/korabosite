@@ -27,6 +27,26 @@ function wows_views_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_equipment:equipment
+  $menu_links['main-menu_equipment:equipment'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'equipment',
+    'router_path' => 'equipment',
+    'link_title' => 'Equipment',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_equipment:equipment',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -43,6 +63,23 @@ function wows_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
+  );
+  // Exported menu link: main-menu_profile-ranks:profile-ranks
+  $menu_links['main-menu_profile-ranks:profile-ranks'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'profile-ranks',
+    'router_path' => 'profile-ranks',
+    'link_title' => 'Profile ranks',
+    'options' => array(
+      'identifier' => 'main-menu_profile-ranks:profile-ranks',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 0,
   );
   // Exported menu link: main-menu_ships:ships
   $menu_links['main-menu_ships:ships'] = array(
@@ -81,7 +118,9 @@ function wows_views_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Commander Skills');
+  t('Equipment');
   t('Home');
+  t('Profile ranks');
   t('Ships');
   t('Tech Tree');
 

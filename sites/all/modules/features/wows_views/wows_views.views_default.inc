@@ -11,6 +11,88 @@ function wows_views_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'better_tech_tree_';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Better tech tree ';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Class */
+  $handler->display->display_options['fields']['field_class']['id'] = 'field_class';
+  $handler->display->display_options['fields']['field_class']['table'] = 'field_data_field_class';
+  $handler->display->display_options['fields']['field_class']['field'] = 'field_class';
+  $handler->display->display_options['fields']['field_class']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Tier (field_tier) */
+  $handler->display->display_options['sorts']['field_tier_tid']['id'] = 'field_tier_tid';
+  $handler->display->display_options['sorts']['field_tier_tid']['table'] = 'field_data_field_tier';
+  $handler->display->display_options['sorts']['field_tier_tid']['field'] = 'field_tier_tid';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ships' => 'ships',
+  );
+  /* Filter criterion: Content: Nation ent ref (field_nation_ent_ref) */
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['id'] = 'field_nation_ent_ref_target_id';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['table'] = 'field_data_field_nation_ent_ref';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['field'] = 'field_nation_ent_ref_target_id';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator_id'] = 'field_nation_ent_ref_target_id_op';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['label'] = 'Nation ent ref (field_nation_ent_ref)';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator'] = 'field_nation_ent_ref_target_id_op';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['identifier'] = 'field_nation_ent_ref_target_id';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $export['better_tech_tree_'] = $view;
+
+  $view = new view();
   $view->name = 'engines';
   $view->description = '';
   $view->tag = 'default';
@@ -62,7 +144,9 @@ function wows_views_views_default_views() {
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Name';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
 return substr($row->title, $cut+1);';
@@ -113,6 +197,81 @@ return substr($row->title, $cut+1);';
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $export['engines'] = $view;
+
+  $view = new view();
+  $view->name = 'equipment_list';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Equipment list';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Name';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Effects */
+  $handler->display->display_options['fields']['field_effects']['id'] = 'field_effects';
+  $handler->display->display_options['fields']['field_effects']['table'] = 'field_data_field_effects';
+  $handler->display->display_options['fields']['field_effects']['field'] = 'field_effects';
+  $handler->display->display_options['fields']['field_effects']['delta_offset'] = '0';
+  /* Field: Content: Credit cost */
+  $handler->display->display_options['fields']['field_credit_cost']['id'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Credit cost (field_credit_cost) */
+  $handler->display->display_options['sorts']['field_credit_cost_value']['id'] = 'field_credit_cost_value';
+  $handler->display->display_options['sorts']['field_credit_cost_value']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['sorts']['field_credit_cost_value']['field'] = 'field_credit_cost_value';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'equipment' => 'equipment',
+  );
+
+  /* Display: Equipment list */
+  $handler = $view->new_display('panel_pane', 'Equipment list', 'panel_pane_1');
+  $export['equipment_list'] = $view;
 
   $view = new view();
   $view->name = 'gun_control';
@@ -166,7 +325,9 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Name';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
 return substr($row->title, $cut+1);';
@@ -325,7 +486,9 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Name';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
 return substr($row->title, $cut+1);';
@@ -541,7 +704,9 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Name';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
 return substr($row->title, $cut+1);';
@@ -644,6 +809,85 @@ return substr($row->title, $cut+1);';
   $export['hulls'] = $view;
 
   $view = new view();
+  $view->name = 'profile_ranks';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Profile ranks';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Profile ranks';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Ranks';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'Description';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['label'] = 'Experience needed';
+  $handler->display->display_options['fields']['field_experience_cost']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'profile_ranks' => 'profile_ranks',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['profile_ranks'] = $view;
+
+  $view = new view();
   $view->name = 'ships';
   $view->description = '';
   $view->tag = 'default';
@@ -732,15 +976,18 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['title']['label'] = 'Name';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'strong';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Nation */
   $handler->display->display_options['fields']['field_nation']['id'] = 'field_nation';
   $handler->display->display_options['fields']['field_nation']['table'] = 'field_data_field_nation';
   $handler->display->display_options['fields']['field_nation']['field'] = 'field_nation';
+  $handler->display->display_options['fields']['field_nation']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Class */
   $handler->display->display_options['fields']['field_class']['id'] = 'field_class';
   $handler->display->display_options['fields']['field_class']['table'] = 'field_data_field_class';
   $handler->display->display_options['fields']['field_class']['field'] = 'field_class';
+  $handler->display->display_options['fields']['field_class']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Tier */
   $handler->display->display_options['fields']['field_tier']['id'] = 'field_tier';
   $handler->display->display_options['fields']['field_tier']['table'] = 'field_data_field_tier';
@@ -824,8 +1071,13 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'field_tier',
-      'rendered' => 0,
-      'rendered_strip' => 1,
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_nation_ent_ref',
+      'rendered' => 1,
+      'rendered_strip' => 0,
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -836,6 +1088,23 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Nation ent ref */
+  $handler->display->display_options['fields']['field_nation_ent_ref']['id'] = 'field_nation_ent_ref';
+  $handler->display->display_options['fields']['field_nation_ent_ref']['table'] = 'field_data_field_nation_ent_ref';
+  $handler->display->display_options['fields']['field_nation_ent_ref']['field'] = 'field_nation_ent_ref';
+  $handler->display->display_options['fields']['field_nation_ent_ref']['label'] = '';
+  $handler->display->display_options['fields']['field_nation_ent_ref']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_nation_ent_ref']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_nation_ent_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_nation_ent_ref']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_nation_ent_ref']['settings'] = array(
+    'view_mode' => 'default',
+    'links' => 0,
+  );
+  $handler->display->display_options['fields']['field_nation_ent_ref']['field_api_classes'] = TRUE;
   /* Field: Content: Tier */
   $handler->display->display_options['fields']['field_tier']['id'] = 'field_tier';
   $handler->display->display_options['fields']['field_tier']['table'] = 'field_data_field_tier';
@@ -843,7 +1112,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_tier']['label'] = '';
   $handler->display->display_options['fields']['field_tier']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tier']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_tier']['alter']['text'] = 'Tier [field_tier]';
+  $handler->display->display_options['fields']['field_tier']['alter']['text'] = '<h3>Tier [field_tier]</h3>';
+  $handler->display->display_options['fields']['field_tier']['element_type'] = 'strong';
   $handler->display->display_options['fields']['field_tier']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tier']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Content: Tier (field_tier) */
@@ -1132,6 +1402,95 @@ return substr($row->title, $cut+1);';
   $export['skills_listing'] = $view;
 
   $view = new view();
+  $view->name = 'tech_tree';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Tech Tree';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_class',
+      'rendered' => 0,
+      'rendered_strip' => 1,
+    ),
+  );
+  $handler->display->display_options['style_options']['columns'] = '10';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Tier */
+  $handler->display->display_options['fields']['field_tier']['id'] = 'field_tier';
+  $handler->display->display_options['fields']['field_tier']['table'] = 'field_data_field_tier';
+  $handler->display->display_options['fields']['field_tier']['field'] = 'field_tier';
+  $handler->display->display_options['fields']['field_tier']['label'] = '';
+  $handler->display->display_options['fields']['field_tier']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tier']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Class */
+  $handler->display->display_options['fields']['field_class']['id'] = 'field_class';
+  $handler->display->display_options['fields']['field_class']['table'] = 'field_data_field_class';
+  $handler->display->display_options['fields']['field_class']['field'] = 'field_class';
+  $handler->display->display_options['fields']['field_class']['exclude'] = TRUE;
+  /* Sort criterion: Content: Tier (field_tier) */
+  $handler->display->display_options['sorts']['field_tier_tid']['id'] = 'field_tier_tid';
+  $handler->display->display_options['sorts']['field_tier_tid']['table'] = 'field_data_field_tier';
+  $handler->display->display_options['sorts']['field_tier_tid']['field'] = 'field_tier_tid';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ships' => 'ships',
+  );
+  /* Filter criterion: Content: Nation (field_nation) */
+  $handler->display->display_options['filters']['field_nation_tid']['id'] = 'field_nation_tid';
+  $handler->display->display_options['filters']['field_nation_tid']['table'] = 'field_data_field_nation';
+  $handler->display->display_options['filters']['field_nation_tid']['field'] = 'field_nation_tid';
+  $handler->display->display_options['filters']['field_nation_tid']['value'] = array(
+    2 => '2',
+    3 => '3',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_nation_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['operator_id'] = 'field_nation_tid_op';
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['label'] = 'Nation';
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['operator'] = 'field_nation_tid_op';
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['identifier'] = 'field_nation_tid';
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_nation_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_nation_tid']['vocabulary'] = 'nation';
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['tech_tree'] = $view;
+
+  $view = new view();
   $view->name = 'torpedoes';
   $view->description = '';
   $view->tag = 'default';
@@ -1231,7 +1590,9 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Name';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
 return substr($row->title, $cut+1);';

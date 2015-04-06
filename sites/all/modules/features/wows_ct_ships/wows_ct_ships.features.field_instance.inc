@@ -344,7 +344,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_gun_controls',
     'label' => 'Gun Controls',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -385,7 +385,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_guns',
     'label' => 'Guns',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

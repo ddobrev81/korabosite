@@ -50,7 +50,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 2,
     ),
   );
 
@@ -96,7 +96,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 44,
+      'weight' => 12,
     ),
   );
 
@@ -136,7 +136,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 39,
+      'weight' => 7,
     ),
   );
 
@@ -182,7 +182,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 38,
+      'weight' => 6,
     ),
   );
 
@@ -228,7 +228,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 37,
+      'weight' => 5,
     ),
   );
 
@@ -274,7 +274,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 4,
     ),
   );
 
@@ -314,7 +314,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 40,
+      'weight' => 8,
     ),
   );
 
@@ -364,7 +364,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 33,
+      'weight' => 3,
     ),
   );
 
@@ -410,7 +410,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 41,
+      'weight' => 9,
     ),
   );
 
@@ -451,7 +451,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 46,
+      'weight' => 13,
     ),
   );
 
@@ -497,7 +497,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 42,
+      'weight' => 11,
     ),
   );
 
@@ -543,7 +543,7 @@ function wows_ct_module_hulls_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 43,
+      'weight' => 10,
     ),
   );
 

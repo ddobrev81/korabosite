@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wows_CT_module_profile_ranks feature.
+ */
+
+include_once 'wows_ct_module_profile_ranks.features.inc';

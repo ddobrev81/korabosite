@@ -1,0 +1,14 @@
+name = wows_CT_module_equipment
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = number
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-equipment-body
+features[field_instance][] = node-equipment-field_credit_cost
+features[field_instance][] = node-equipment-field_effects
+features[field_instance][] = node-equipment-field_icon
+features[node][] = equipment

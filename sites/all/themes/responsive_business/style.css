@@ -1229,3 +1229,18 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 
 .column-last{margin-right: 0px;}
 .column-first{margin-left: 0px;}
+
+
+.view-ships-listing-main-menu h3 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.view-ships-listing-main-menu .field-items img {
+    margin-left: 50px;
+}
+
+.view-ships-listing-main-menu .item-list ul {
+    margin-left: 55px;
+}
+

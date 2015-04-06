@@ -7,5 +7,7 @@ features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:2
 features[page_manager_handlers][] = node_view__custom_node_view
 features[page_manager_pages][] = commander_skills
+features[page_manager_pages][] = profile_ranks
+features[page_manager_pages][] = ship_equipment
 features[page_manager_pages][] = ships
 features[page_manager_pages][] = tech_tree
