@@ -27,6 +27,7 @@ function wows_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -38,19 +39,6 @@ function wows_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Class */
-  $handler->display->display_options['fields']['field_class']['id'] = 'field_class';
-  $handler->display->display_options['fields']['field_class']['table'] = 'field_data_field_class';
-  $handler->display->display_options['fields']['field_class']['field'] = 'field_class';
-  $handler->display->display_options['fields']['field_class']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Experience cost */
-  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
-  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
-  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
-  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
   /* Sort criterion: Content: Tier (field_tier) */
   $handler->display->display_options['sorts']['field_tier_tid']['id'] = 'field_tier_tid';
   $handler->display->display_options['sorts']['field_tier_tid']['table'] = 'field_data_field_tier';
@@ -66,11 +54,16 @@ function wows_views_views_default_views() {
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['id'] = 'field_nation_ent_ref_target_id';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['table'] = 'field_data_field_nation_ent_ref';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['field'] = 'field_nation_ent_ref_target_id';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['value'] = array(
+    2 => '2',
+    3 => '3',
+    1 => '1',
+  );
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator_id'] = 'field_nation_ent_ref_target_id_op';
-  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['label'] = 'Nation ent ref (field_nation_ent_ref)';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['label'] = 'Nation';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator'] = 'field_nation_ent_ref_target_id_op';
-  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['identifier'] = 'field_nation_ent_ref_target_id';
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['identifier'] = 'nation';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['required'] = TRUE;
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['remember_roles'] = array(
     2 => '2',
@@ -81,6 +74,7 @@ function wows_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
@@ -88,7 +82,7 @@ function wows_views_views_default_views() {
   $handler->display->display_options['allow']['more_link'] = 0;
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 0;
-  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $export['better_tech_tree_'] = $view;
 

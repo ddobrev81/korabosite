@@ -26,5 +26,21 @@ function wows_image_styles_image_default_styles() {
     ),
   );
 
+  // Exported image style: tech_tree_class_icon.
+  $styles['tech_tree_class_icon'] = array(
+    'label' => 'tech tree class icon',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 22,
+          'height' => 10,
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
