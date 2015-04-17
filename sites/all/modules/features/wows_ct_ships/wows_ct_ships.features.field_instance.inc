@@ -50,7 +50,57 @@ function wows_ct_ships_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-ships-field_aircraft'
+  $field_instances['node-ships-field_aircraft'] = array(
+    'bundle' => 'ships',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_aircraft',
+    'label' => 'Aircraft',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 18,
     ),
   );
 
@@ -96,7 +146,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 45,
+      'weight' => 19,
     ),
   );
 
@@ -135,7 +185,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 4,
     ),
   );
 
@@ -181,7 +231,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 49,
+      'weight' => 23,
     ),
   );
 
@@ -227,7 +277,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 53,
+      'weight' => 25,
     ),
   );
 
@@ -268,7 +318,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 41,
+      'weight' => 10,
     ),
   );
 
@@ -314,7 +364,48 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 51,
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'node-ships-field_flight_controls'
+  $field_instances['node-ships-field_flight_controls'] = array(
+    'bundle' => 'ships',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_flight_controls',
+    'label' => 'Flight Controls',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 13,
     ),
   );
 
@@ -355,7 +446,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 42,
+      'weight' => 11,
     ),
   );
 
@@ -396,7 +487,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 39,
+      'weight' => 8,
     ),
   );
 
@@ -437,7 +528,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 40,
+      'weight' => 9,
     ),
   );
 
@@ -487,7 +578,7 @@ function wows_ct_ships_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 36,
+      'weight' => 6,
     ),
   );
 
@@ -537,7 +628,7 @@ function wows_ct_ships_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 38,
+      'weight' => 7,
     ),
   );
 
@@ -583,7 +674,130 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 48,
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance: 'node-ships-field_module_dive_bombers'
+  $field_instances['node-ships-field_module_dive_bombers'] = array(
+    'bundle' => 'ships',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 25,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_module_dive_bombers',
+    'label' => 'Dive Bombers',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'node-ships-field_module_fighters'
+  $field_instances['node-ships-field_module_fighters'] = array(
+    'bundle' => 'ships',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 23,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_module_fighters',
+    'label' => 'Fighters',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'node-ships-field_module_torpedo_bombers'
+  $field_instances['node-ships-field_module_torpedo_bombers'] = array(
+    'bundle' => 'ships',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 24,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_module_torpedo_bombers',
+    'label' => 'Torpedo Bombers',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 15,
     ),
   );
 
@@ -622,7 +836,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 32,
+      'weight' => 3,
     ),
   );
 
@@ -668,7 +882,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 55,
+      'weight' => 27,
     ),
   );
 
@@ -709,7 +923,7 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 54,
+      'weight' => 26,
     ),
   );
 
@@ -755,7 +969,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 21,
     ),
   );
 
@@ -801,7 +1015,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 46,
+      'weight' => 20,
     ),
   );
 
@@ -847,7 +1061,7 @@ function wows_ct_ships_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 44,
+      'weight' => 17,
     ),
   );
 
@@ -888,7 +1102,7 @@ function wows_ct_ships_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'options_select',
-      'weight' => 34,
+      'weight' => 5,
     ),
   );
 
@@ -929,20 +1143,24 @@ function wows_ct_ships_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 43,
+      'weight' => 12,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('AA Guns');
+  t('Aircraft');
   t('Artillery');
   t('Body');
   t('Class');
   t('Concealment');
   t('Credit cost');
+  t('Dive Bombers');
   t('Engines');
   t('Experience cost');
+  t('Fighters');
+  t('Flight Controls');
   t('Gun Controls');
   t('Guns');
   t('Hulls');
@@ -954,6 +1172,7 @@ function wows_ct_ships_field_default_field_instances() {
   t('Previous Ship');
   t('Survivability');
   t('Tier');
+  t('Torpedo Bombers');
   t('Torpedoes');
 
   return $field_instances;

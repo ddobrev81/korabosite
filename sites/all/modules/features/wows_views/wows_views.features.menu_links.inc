@@ -64,23 +64,6 @@ function wows_views_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_profile-ranks:profile-ranks
-  $menu_links['main-menu_profile-ranks:profile-ranks'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'profile-ranks',
-    'router_path' => 'profile-ranks',
-    'link_title' => 'Profile ranks',
-    'options' => array(
-      'identifier' => 'main-menu_profile-ranks:profile-ranks',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-  );
   // Exported menu link: main-menu_ships:ships
   $menu_links['main-menu_ships:ships'] = array(
     'menu_name' => 'main-menu',
@@ -120,7 +103,6 @@ function wows_views_menu_default_menu_links() {
   t('Commander Skills');
   t('Equipment');
   t('Home');
-  t('Profile ranks');
   t('Ships');
   t('Tech Tree');
 

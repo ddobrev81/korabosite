@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wows_CT_module_torpedo_bombers feature.
+ */
+
+include_once 'wows_ct_module_torpedo_bombers.features.inc';

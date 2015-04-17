@@ -39,6 +39,16 @@ function wows_pages_default_page_manager_handlers() {
           'context' => 'argument_entity_id:node_1',
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'ships' => 'ships',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
       ),
       'logic' => 'and',
     ),
@@ -121,6 +131,44 @@ function wows_pages_default_page_manager_handlers() {
     $display->content['new-4aeeadd1-bf19-4281-b128-ea48184d9bf1'] = $pane;
     $display->panels['left_below'][1] = 'new-4aeeadd1-bf19-4281-b128-ea48184d9bf1';
     $pane = new stdClass();
+    $pane->pid = 'new-61e41fec-68f2-47c0-9945-a2ae07d82e97';
+    $pane->panel = 'left_below';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'flight_control-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '61e41fec-68f2-47c0-9945-a2ae07d82e97';
+    $display->content['new-61e41fec-68f2-47c0-9945-a2ae07d82e97'] = $pane;
+    $display->panels['left_below'][2] = 'new-61e41fec-68f2-47c0-9945-a2ae07d82e97';
+    $pane = new stdClass();
+    $pane->pid = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $pane->panel = 'left_below';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'engines-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $display->content['new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea'] = $pane;
+    $display->panels['left_below'][3] = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $pane = new stdClass();
     $pane->pid = 'new-3cc7076e-a2df-4ec3-aa73-4657a561ed46';
     $pane->panel = 'right_above';
     $pane->type = 'views_panes';
@@ -178,10 +226,10 @@ function wows_pages_default_page_manager_handlers() {
     $display->content['new-a6d45fdb-d834-46ea-bf63-81a7af83545c'] = $pane;
     $display->panels['right_below'][1] = 'new-a6d45fdb-d834-46ea-bf63-81a7af83545c';
     $pane = new stdClass();
-    $pane->pid = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $pane->pid = 'new-3550a499-14aa-4c7d-8bd6-65bea556bd3f';
     $pane->panel = 'right_below';
     $pane->type = 'views_panes';
-    $pane->subtype = 'engines-panel_pane_1';
+    $pane->subtype = 'fighters-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -193,9 +241,47 @@ function wows_pages_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
-    $display->content['new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea'] = $pane;
-    $display->panels['right_below'][2] = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $pane->uuid = '3550a499-14aa-4c7d-8bd6-65bea556bd3f';
+    $display->content['new-3550a499-14aa-4c7d-8bd6-65bea556bd3f'] = $pane;
+    $display->panels['right_below'][2] = 'new-3550a499-14aa-4c7d-8bd6-65bea556bd3f';
+    $pane = new stdClass();
+    $pane->pid = 'new-1b332dac-0333-44d4-92b8-8f75d0bb57f0';
+    $pane->panel = 'right_below';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'torpedo_bombers-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '1b332dac-0333-44d4-92b8-8f75d0bb57f0';
+    $display->content['new-1b332dac-0333-44d4-92b8-8f75d0bb57f0'] = $pane;
+    $display->panels['right_below'][3] = 'new-1b332dac-0333-44d4-92b8-8f75d0bb57f0';
+    $pane = new stdClass();
+    $pane->pid = 'new-4631658d-0f25-4772-a78a-3fade685bb20';
+    $pane->panel = 'right_below';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'dive_bombers-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '4631658d-0f25-4772-a78a-3fade685bb20';
+    $display->content['new-4631658d-0f25-4772-a78a-3fade685bb20'] = $pane;
+    $display->panels['right_below'][4] = 'new-4631658d-0f25-4772-a78a-3fade685bb20';
     $pane = new stdClass();
     $pane->pid = 'new-d1b96ca5-79a4-48a8-a674-88df9a5610c0';
     $pane->panel = 'top';

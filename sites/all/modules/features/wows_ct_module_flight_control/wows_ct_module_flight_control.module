@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wows_CT_module_flight_control feature.
+ */
+
+include_once 'wows_ct_module_flight_control.features.inc';

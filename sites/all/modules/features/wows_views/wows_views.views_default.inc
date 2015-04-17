@@ -87,6 +87,127 @@ function wows_views_views_default_views() {
   $export['better_tech_tree_'] = $view;
 
   $view = new view();
+  $view->name = 'dive_bombers';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Dive bombers';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Dive bombers';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 0;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_module_dive_bombers_node']['id'] = 'reverse_field_module_dive_bombers_node';
+  $handler->display->display_options['relationships']['reverse_field_module_dive_bombers_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_module_dive_bombers_node']['field'] = 'reverse_field_module_dive_bombers_node';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
+return substr($row->title, $cut+1);';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Credit cost */
+  $handler->display->display_options['fields']['field_credit_cost']['id'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Cruise speed */
+  $handler->display->display_options['fields']['field_cruise_speed']['id'] = 'field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['table'] = 'field_data_field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['field'] = 'field_cruise_speed';
+  /* Field: Content: Maximum Bomb Damage */
+  $handler->display->display_options['fields']['field_maximum_bomb_damage']['id'] = 'field_maximum_bomb_damage';
+  $handler->display->display_options['fields']['field_maximum_bomb_damage']['table'] = 'field_data_field_maximum_bomb_damage';
+  $handler->display->display_options['fields']['field_maximum_bomb_damage']['field'] = 'field_maximum_bomb_damage';
+  $handler->display->display_options['fields']['field_maximum_bomb_damage']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Survivability */
+  $handler->display->display_options['fields']['field_survivability_dive_bombers']['id'] = 'field_survivability_dive_bombers';
+  $handler->display->display_options['fields']['field_survivability_dive_bombers']['table'] = 'field_data_field_survivability_dive_bombers';
+  $handler->display->display_options['fields']['field_survivability_dive_bombers']['field'] = 'field_survivability_dive_bombers';
+  $handler->display->display_options['fields']['field_survivability_dive_bombers']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_module_dive_bombers_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'module_dive_bombers' => 'module_dive_bombers',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['dive_bombers'] = $view;
+
+  $view = new view();
   $view->name = 'engines';
   $view->description = '';
   $view->tag = 'default';
@@ -266,6 +387,268 @@ return substr($row->title, $cut+1);';
   /* Display: Equipment list */
   $handler = $view->new_display('panel_pane', 'Equipment list', 'panel_pane_1');
   $export['equipment_list'] = $view;
+
+  $view = new view();
+  $view->name = 'fighters';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Fighters';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Fighters';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 0;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_module_fighters_node']['id'] = 'reverse_field_module_fighters_node';
+  $handler->display->display_options['relationships']['reverse_field_module_fighters_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_module_fighters_node']['field'] = 'reverse_field_module_fighters_node';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
+return substr($row->title, $cut+1);';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Credit cost */
+  $handler->display->display_options['fields']['field_credit_cost']['id'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Cruise speed */
+  $handler->display->display_options['fields']['field_cruise_speed']['id'] = 'field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['table'] = 'field_data_field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['field'] = 'field_cruise_speed';
+  /* Field: Content: Average DPS */
+  $handler->display->display_options['fields']['field_average_dps']['id'] = 'field_average_dps';
+  $handler->display->display_options['fields']['field_average_dps']['table'] = 'field_data_field_average_dps';
+  $handler->display->display_options['fields']['field_average_dps']['field'] = 'field_average_dps';
+  $handler->display->display_options['fields']['field_average_dps']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Loadout */
+  $handler->display->display_options['fields']['field_loadout']['id'] = 'field_loadout';
+  $handler->display->display_options['fields']['field_loadout']['table'] = 'field_data_field_loadout';
+  $handler->display->display_options['fields']['field_loadout']['field'] = 'field_loadout';
+  $handler->display->display_options['fields']['field_loadout']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Survivability */
+  $handler->display->display_options['fields']['field_survivability_figthers']['id'] = 'field_survivability_figthers';
+  $handler->display->display_options['fields']['field_survivability_figthers']['table'] = 'field_data_field_survivability_figthers';
+  $handler->display->display_options['fields']['field_survivability_figthers']['field'] = 'field_survivability_figthers';
+  $handler->display->display_options['fields']['field_survivability_figthers']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_module_fighters_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'module_fighters' => 'module_fighters',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['fighters'] = $view;
+
+  $view = new view();
+  $view->name = 'flight_control';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Flight control';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Flight Control';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 0;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_flight_controls_node']['id'] = 'reverse_field_flight_controls_node';
+  $handler->display->display_options['relationships']['reverse_field_flight_controls_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_flight_controls_node']['field'] = 'reverse_field_flight_controls_node';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
+return substr($row->title, $cut+1);';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Credit cost */
+  $handler->display->display_options['fields']['field_credit_cost']['id'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Fighters */
+  $handler->display->display_options['fields']['field_fighters']['id'] = 'field_fighters';
+  $handler->display->display_options['fields']['field_fighters']['table'] = 'field_data_field_fighters';
+  $handler->display->display_options['fields']['field_fighters']['field'] = 'field_fighters';
+  $handler->display->display_options['fields']['field_fighters']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_fighters']['alter']['text'] = '[field_fighters-value] sq.';
+  $handler->display->display_options['fields']['field_fighters']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Torpedo Bombers */
+  $handler->display->display_options['fields']['field_torpedo_bombers']['id'] = 'field_torpedo_bombers';
+  $handler->display->display_options['fields']['field_torpedo_bombers']['table'] = 'field_data_field_torpedo_bombers';
+  $handler->display->display_options['fields']['field_torpedo_bombers']['field'] = 'field_torpedo_bombers';
+  $handler->display->display_options['fields']['field_torpedo_bombers']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_torpedo_bombers']['alter']['text'] = '[field_torpedo_bombers-value] sq.';
+  $handler->display->display_options['fields']['field_torpedo_bombers']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Dive Bombers */
+  $handler->display->display_options['fields']['field_dive_bombers']['id'] = 'field_dive_bombers';
+  $handler->display->display_options['fields']['field_dive_bombers']['table'] = 'field_data_field_dive_bombers';
+  $handler->display->display_options['fields']['field_dive_bombers']['field'] = 'field_dive_bombers';
+  $handler->display->display_options['fields']['field_dive_bombers']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dive_bombers']['alter']['text'] = '[field_dive_bombers-value] sq.';
+  $handler->display->display_options['fields']['field_dive_bombers']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_dive_bombers']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_dive_bombers']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_flight_controls_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'module_flight_control' => 'module_flight_control',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['flight_control'] = $view;
 
   $view = new view();
   $view->name = 'gun_control';
@@ -1219,6 +1602,16 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Aircraft */
+  $handler->display->display_options['fields']['field_aircraft']['id'] = 'field_aircraft';
+  $handler->display->display_options['fields']['field_aircraft']['table'] = 'field_data_field_aircraft';
+  $handler->display->display_options['fields']['field_aircraft']['field'] = 'field_aircraft';
+  $handler->display->display_options['fields']['field_aircraft']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_aircraft']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_aircraft']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
   /* Field: Content: Torpedoes */
   $handler->display->display_options['fields']['field_ship_torpedoes']['id'] = 'field_ship_torpedoes';
   $handler->display->display_options['fields']['field_ship_torpedoes']['table'] = 'field_data_field_ship_torpedoes';
@@ -1483,6 +1876,127 @@ return substr($row->title, $cut+1);';
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $export['tech_tree'] = $view;
+
+  $view = new view();
+  $view->name = 'torpedo_bombers';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Torpedo bombers';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Torpedo bombers';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 0;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_module_torpedo_bombers_node']['id'] = 'reverse_field_module_torpedo_bombers_node';
+  $handler->display->display_options['relationships']['reverse_field_module_torpedo_bombers_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_module_torpedo_bombers_node']['field'] = 'reverse_field_module_torpedo_bombers_node';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_value'] = '$cut = strpos($row->title, \']\');
+return substr($row->title, $cut+1);';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Content: Experience cost */
+  $handler->display->display_options['fields']['field_experience_cost']['id'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['table'] = 'field_data_field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['field'] = 'field_experience_cost';
+  $handler->display->display_options['fields']['field_experience_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Credit cost */
+  $handler->display->display_options['fields']['field_credit_cost']['id'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
+  $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Cruise speed */
+  $handler->display->display_options['fields']['field_cruise_speed']['id'] = 'field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['table'] = 'field_data_field_cruise_speed';
+  $handler->display->display_options['fields']['field_cruise_speed']['field'] = 'field_cruise_speed';
+  /* Field: Content: Maximum Torpedo Damage */
+  $handler->display->display_options['fields']['field_maximum_torpedo_damage']['id'] = 'field_maximum_torpedo_damage';
+  $handler->display->display_options['fields']['field_maximum_torpedo_damage']['table'] = 'field_data_field_maximum_torpedo_damage';
+  $handler->display->display_options['fields']['field_maximum_torpedo_damage']['field'] = 'field_maximum_torpedo_damage';
+  $handler->display->display_options['fields']['field_maximum_torpedo_damage']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Survivability */
+  $handler->display->display_options['fields']['field_survivability_torp_bombers']['id'] = 'field_survivability_torp_bombers';
+  $handler->display->display_options['fields']['field_survivability_torp_bombers']['table'] = 'field_data_field_survivability_torp_bombers';
+  $handler->display->display_options['fields']['field_survivability_torp_bombers']['field'] = 'field_survivability_torp_bombers';
+  $handler->display->display_options['fields']['field_survivability_torp_bombers']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_module_torpedo_bombers_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'module_torpedo_bombers' => 'module_torpedo_bombers',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['torpedo_bombers'] = $view;
 
   $view = new view();
   $view->name = 'torpedoes';
