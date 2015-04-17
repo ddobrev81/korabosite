@@ -1531,6 +1531,7 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_survivability' => 'field_survivability',
     'field_artillery' => 'field_artillery',
+    'field_aircraft' => 'field_aircraft',
     'field_ship_torpedoes' => 'field_ship_torpedoes',
     'field_ship_aa_guns' => 'field_ship_aa_guns',
     'field_maneurability' => 'field_maneurability',
@@ -1546,6 +1547,13 @@ return substr($row->title, $cut+1);';
       'empty_column' => 0,
     ),
     'field_artillery' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
+    'field_aircraft' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',

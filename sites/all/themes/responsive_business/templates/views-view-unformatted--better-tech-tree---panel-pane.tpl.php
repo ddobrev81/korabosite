@@ -36,7 +36,7 @@
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
   
-<?php dpm($view);
+<?php //dpm($view);
 // Japan Tech Tree
 if ($view->exposed_data['nation'] == 2):
 ?>  
@@ -77,7 +77,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/katori"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -160,7 +160,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/chikuma"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -181,7 +181,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/umikaze"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -255,7 +255,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/kawachi"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -275,7 +275,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/tatsuta"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -295,7 +295,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/wakatake"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -369,7 +369,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/myogi"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -389,7 +389,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/kuma"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -409,7 +409,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/isokaze"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -483,7 +483,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/kongo"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -507,7 +507,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/minekaze"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -581,7 +581,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/fuso"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -601,7 +601,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/aoba"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -621,7 +621,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/mutsuki"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -695,7 +695,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/nagato"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -715,7 +715,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/mogami"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -735,7 +735,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/hatsuharu"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -809,7 +809,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/amagi"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -829,7 +829,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/myoko"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -849,7 +849,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/fubuki"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -927,7 +927,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/ibuki"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -947,7 +947,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/kagero"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1021,7 +1021,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/yamato"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1041,7 +1041,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/senjo"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1061,7 +1061,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/shimakaze"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1092,7 +1092,7 @@ if ($view->exposed_data['nation'] == 2):
       <td>Battleships</td>
       <td></td>
       <td>Cruisers</td>
-      <td>Premium Cruisers</td>
+      <td></td>
       <td>Destroyers</td>
       <td></td>
       <td>Carriers</td>
@@ -1121,7 +1121,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/erie"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1204,7 +1204,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/chester"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1225,7 +1225,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/sampson"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1305,7 +1305,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/st-louis"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1326,7 +1326,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/wickes"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1406,7 +1406,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/phoenix"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1427,7 +1427,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/clemson"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1448,7 +1448,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/langley"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1524,7 +1524,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/omaha"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1545,7 +1545,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/nicholas"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1566,7 +1566,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/independence"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1641,7 +1641,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/cleveland"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1662,7 +1662,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/farragut"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1683,7 +1683,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/saipan"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1759,7 +1759,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/pensacola"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1778,9 +1778,9 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/atlanta"><strong><?php print $node->title; ?></strong></a>
         </div>
-        <div style="float:left;"><?php print $node->field_credit_cost['und'][0]['value']; ?> plasters</div>
+        <div style="float:left;"><?php print $node->field_credit_cost['und'][0]['value']; ?> gd</div>
       </td>
       <?php //Mahan ?> 
       <?php $node = node_load(380);
@@ -1796,7 +1796,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/mahan"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1817,7 +1817,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/ranger"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1892,7 +1892,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="font-size:10px;" href="ship/new-orleans"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1913,7 +1913,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/benson"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -1934,7 +1934,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/lexington"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2009,7 +2009,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/baltimore"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2030,7 +2030,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/fletcher"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2109,7 +2109,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 70%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/des-moines"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2130,7 +2130,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/gearing"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2151,7 +2151,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/essex"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -2326,7 +2326,7 @@ if ($view->exposed_data['nation'] == 2):
       <td></td>
       <?php //cr ?> 
       <td></td>
-      <?php //Cruisers prems ?>
+      <?php //Aurora ?>
       <?php $node = node_load(486); ?>
       <td>
         <div style="float:left;">
@@ -2339,7 +2339,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="node/<?php print $node->nid; ?>"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/aurora"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="clear: both;font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
         
