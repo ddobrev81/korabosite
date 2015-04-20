@@ -330,7 +330,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -362,7 +363,7 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_credit_cost']['table'] = 'field_data_field_credit_cost';
   $handler->display->display_options['fields']['field_credit_cost']['field'] = 'field_credit_cost';
   $handler->display->display_options['fields']['field_credit_cost']['settings'] = array(
-    'thousand_separator' => ' ',
+    'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
   /* Sort criterion: Content: Credit cost (field_credit_cost) */
