@@ -55,16 +55,16 @@ function wows_views_views_default_views() {
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['table'] = 'field_data_field_nation_ent_ref';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['field'] = 'field_nation_ent_ref_target_id';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['value'] = array(
-    2 => '2',
     3 => '3',
     1 => '1',
+    2 => '2',
   );
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator_id'] = 'field_nation_ent_ref_target_id_op';
-  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['label'] = 'Nation';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator'] = 'field_nation_ent_ref_target_id_op';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['identifier'] = 'nation';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -1601,6 +1601,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Survivability description */
+  $handler->display->display_options['fields']['field_survivability_description']['id'] = 'field_survivability_description';
+  $handler->display->display_options['fields']['field_survivability_description']['table'] = 'field_data_field_survivability_description';
+  $handler->display->display_options['fields']['field_survivability_description']['field'] = 'field_survivability_description';
+  $handler->display->display_options['fields']['field_survivability_description']['label'] = '';
+  $handler->display->display_options['fields']['field_survivability_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_survivability_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_survivability_description']['multi_type'] = 'ul';
   /* Field: Content: Artillery */
   $handler->display->display_options['fields']['field_artillery']['id'] = 'field_artillery';
   $handler->display->display_options['fields']['field_artillery']['table'] = 'field_data_field_artillery';
@@ -1611,6 +1619,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Artillery description */
+  $handler->display->display_options['fields']['field_artillery_description']['id'] = 'field_artillery_description';
+  $handler->display->display_options['fields']['field_artillery_description']['table'] = 'field_data_field_artillery_description';
+  $handler->display->display_options['fields']['field_artillery_description']['field'] = 'field_artillery_description';
+  $handler->display->display_options['fields']['field_artillery_description']['label'] = '';
+  $handler->display->display_options['fields']['field_artillery_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_artillery_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_artillery_description']['multi_type'] = 'ul';
   /* Field: Content: Aircraft */
   $handler->display->display_options['fields']['field_aircraft']['id'] = 'field_aircraft';
   $handler->display->display_options['fields']['field_aircraft']['table'] = 'field_data_field_aircraft';
@@ -1621,6 +1637,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Aircraft description */
+  $handler->display->display_options['fields']['field_aircraft_description']['id'] = 'field_aircraft_description';
+  $handler->display->display_options['fields']['field_aircraft_description']['table'] = 'field_data_field_aircraft_description';
+  $handler->display->display_options['fields']['field_aircraft_description']['field'] = 'field_aircraft_description';
+  $handler->display->display_options['fields']['field_aircraft_description']['label'] = '';
+  $handler->display->display_options['fields']['field_aircraft_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aircraft_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_aircraft_description']['multi_type'] = 'ul';
   /* Field: Content: Torpedoes */
   $handler->display->display_options['fields']['field_ship_torpedoes']['id'] = 'field_ship_torpedoes';
   $handler->display->display_options['fields']['field_ship_torpedoes']['table'] = 'field_data_field_ship_torpedoes';
@@ -1631,6 +1655,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Torpedoes description */
+  $handler->display->display_options['fields']['field_torpedoes_description']['id'] = 'field_torpedoes_description';
+  $handler->display->display_options['fields']['field_torpedoes_description']['table'] = 'field_data_field_torpedoes_description';
+  $handler->display->display_options['fields']['field_torpedoes_description']['field'] = 'field_torpedoes_description';
+  $handler->display->display_options['fields']['field_torpedoes_description']['label'] = '';
+  $handler->display->display_options['fields']['field_torpedoes_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_torpedoes_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_torpedoes_description']['multi_type'] = 'ul';
   /* Field: Content: AA Guns */
   $handler->display->display_options['fields']['field_ship_aa_guns']['id'] = 'field_ship_aa_guns';
   $handler->display->display_options['fields']['field_ship_aa_guns']['table'] = 'field_data_field_ship_aa_guns';
@@ -1641,6 +1673,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: AA Guns description */
+  $handler->display->display_options['fields']['field_aa_guns_description']['id'] = 'field_aa_guns_description';
+  $handler->display->display_options['fields']['field_aa_guns_description']['table'] = 'field_data_field_aa_guns_description';
+  $handler->display->display_options['fields']['field_aa_guns_description']['field'] = 'field_aa_guns_description';
+  $handler->display->display_options['fields']['field_aa_guns_description']['label'] = '';
+  $handler->display->display_options['fields']['field_aa_guns_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aa_guns_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_aa_guns_description']['multi_type'] = 'ul';
   /* Field: Content: Maneurability */
   $handler->display->display_options['fields']['field_maneurability']['id'] = 'field_maneurability';
   $handler->display->display_options['fields']['field_maneurability']['table'] = 'field_data_field_maneurability';
@@ -1649,6 +1689,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Maneurability description */
+  $handler->display->display_options['fields']['field_maneurability_description']['id'] = 'field_maneurability_description';
+  $handler->display->display_options['fields']['field_maneurability_description']['table'] = 'field_data_field_maneurability_description';
+  $handler->display->display_options['fields']['field_maneurability_description']['field'] = 'field_maneurability_description';
+  $handler->display->display_options['fields']['field_maneurability_description']['label'] = '';
+  $handler->display->display_options['fields']['field_maneurability_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_maneurability_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_maneurability_description']['multi_type'] = 'ul';
   /* Field: Content: Concealment */
   $handler->display->display_options['fields']['field_concealment']['id'] = 'field_concealment';
   $handler->display->display_options['fields']['field_concealment']['table'] = 'field_data_field_concealment';
@@ -1657,6 +1705,14 @@ return substr($row->title, $cut+1);';
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
+  /* Field: Content: Concealment description */
+  $handler->display->display_options['fields']['field_concealment_description']['id'] = 'field_concealment_description';
+  $handler->display->display_options['fields']['field_concealment_description']['table'] = 'field_data_field_concealment_description';
+  $handler->display->display_options['fields']['field_concealment_description']['field'] = 'field_concealment_description';
+  $handler->display->display_options['fields']['field_concealment_description']['label'] = '';
+  $handler->display->display_options['fields']['field_concealment_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_concealment_description']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_concealment_description']['multi_type'] = 'ul';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';

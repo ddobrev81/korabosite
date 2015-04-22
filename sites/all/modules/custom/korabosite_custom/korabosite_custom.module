@@ -1,0 +1,17 @@
+<?php
+
+//function korabosite_custom_form_alter(&$form, $form_state) {
+//  
+//  if($form['#id'] == 'views-exposed-form-better-tech-tree--panel-pane-1') {
+////    dpm($form);
+//    foreach($form['nation']['#options'] as $term_id => $option) {
+//      $current_term = taxonomy_term_load($term_id);
+////      dpm($current_term);
+//      $current_image = $current_term->field_flag['und'][0]['uri'];
+////      dpm($current_image);
+//      $form['nation']['#options'][$term_id] = '<img src="'.image_style_url('flags_small', $current_image).'"/>';
+//      // '<img src="'.image_style_url('flags_small', $current_image).'"/>'
+//    }
+//  }
+//  //dpm($form);
+//}

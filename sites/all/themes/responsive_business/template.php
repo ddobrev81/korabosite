@@ -115,3 +115,13 @@ if (drupal_is_front_page()) {
   drupal_add_js(drupal_get_path('theme', 'responsive_business') . '/js/jquery.flexslider-min.js');
   drupal_add_js(drupal_get_path('theme', 'responsive_business') . '/js/slide.js');
 }
+
+
+function responsive_business_preprocess_html(&$vars) {
+  $menu = menu_get_active_trail();
+  if (isset($menu[1]['title']) && !drupal_is_front_page()) {
+    $title = $menu[1]['title'];
+    $vars['head_title_array']['title'] = $title;
+    $vars['head_title'] = implode(' | ', array_reverse($vars['head_title_array']));
+  }
+}
