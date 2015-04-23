@@ -57,7 +57,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_aa_guns_description'
   $field_instances['node-ships-field_aa_guns_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'AA Guns',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -147,7 +151,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_aircraft_description'
   $field_instances['node-ships-field_aircraft_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Squadrons under Command',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -233,7 +241,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_artillery_description'
   $field_instances['node-ships-field_artillery_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Main Battery',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -358,7 +370,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_concealment_description'
   $field_instances['node-ships-field_concealment_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Surface Detectability Range',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -841,7 +857,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_maneurability_description'
   $field_instances['node-ships-field_maneurability_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Maximim speed',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1268,7 +1288,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_survivability_description'
   $field_instances['node-ships-field_survivability_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Combat Capability',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1390,7 +1414,11 @@ function wows_ct_ships_field_default_field_instances() {
   // Exported field_instance: 'node-ships-field_torpedoes_description'
   $field_instances['node-ships-field_torpedoes_description'] = array(
     'bundle' => 'ships',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Torpedo Tubes',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
