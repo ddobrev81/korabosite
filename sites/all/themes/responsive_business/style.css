@@ -1244,3 +1244,6 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
     margin-left: 55px;
 }
 
+#ship_node_view_icon img{
+    border: solid 1px #ddd;
+}

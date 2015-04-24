@@ -1531,18 +1531,30 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['style_plugin'] = 'flipped';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_survivability' => 'field_survivability',
+    'field_survivability_description' => 'field_survivability_description',
     'field_artillery' => 'field_artillery',
+    'field_artillery_description' => 'field_artillery_description',
     'field_aircraft' => 'field_aircraft',
+    'field_aircraft_description' => 'field_aircraft_description',
     'field_ship_torpedoes' => 'field_ship_torpedoes',
+    'field_torpedoes_description' => 'field_torpedoes_description',
     'field_ship_aa_guns' => 'field_ship_aa_guns',
+    'field_aa_guns_description' => 'field_aa_guns_description',
     'field_maneurability' => 'field_maneurability',
+    'field_maneurability_description' => 'field_maneurability_description',
     'field_concealment' => 'field_concealment',
+    'field_concealment_description' => 'field_concealment_description',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'field_survivability' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_survivability_description' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1554,9 +1566,19 @@ return substr($row->title, $cut+1);';
       'separator' => '',
       'empty_column' => 1,
     ),
+    'field_artillery_description' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_aircraft' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
+    'field_aircraft_description' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 1,
@@ -1568,9 +1590,19 @@ return substr($row->title, $cut+1);';
       'separator' => '',
       'empty_column' => 1,
     ),
+    'field_torpedoes_description' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
     'field_ship_aa_guns' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
+    'field_aa_guns_description' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 1,
@@ -1582,9 +1614,19 @@ return substr($row->title, $cut+1);';
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_maneurability_description' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_concealment' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_concealment_description' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1643,6 +1685,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_aircraft_description']['field'] = 'field_aircraft_description';
   $handler->display->display_options['fields']['field_aircraft_description']['label'] = '';
   $handler->display->display_options['fields']['field_aircraft_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aircraft_description']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_aircraft_description']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_aircraft_description']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_aircraft_description']['multi_type'] = 'ul';
   /* Field: Content: Torpedoes */
@@ -1661,6 +1705,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_torpedoes_description']['field'] = 'field_torpedoes_description';
   $handler->display->display_options['fields']['field_torpedoes_description']['label'] = '';
   $handler->display->display_options['fields']['field_torpedoes_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_torpedoes_description']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_torpedoes_description']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_torpedoes_description']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_torpedoes_description']['multi_type'] = 'ul';
   /* Field: Content: AA Guns */
@@ -1679,6 +1725,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_aa_guns_description']['field'] = 'field_aa_guns_description';
   $handler->display->display_options['fields']['field_aa_guns_description']['label'] = '';
   $handler->display->display_options['fields']['field_aa_guns_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_aa_guns_description']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_aa_guns_description']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_aa_guns_description']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_aa_guns_description']['multi_type'] = 'ul';
   /* Field: Content: Maneurability */

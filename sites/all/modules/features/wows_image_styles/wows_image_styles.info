@@ -4,4 +4,6 @@ package = Features
 dependencies[] = image
 features[features_api][] = api:2
 features[image][] = flags_small
+features[image][] = ship_node_view_icon
 features[image][] = tech_tree_class_icon
+features[image][] = tech_tree_flags_filter
