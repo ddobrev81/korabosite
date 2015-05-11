@@ -394,8 +394,23 @@ if ($view->exposed_data['nation'] == 2):
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
       </td>
-      <?php //Cruisers prems ?>
-      <td></td>
+      <?php //Yubari ?>
+      <?php $node = node_load(559); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/yubari"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
+      </td>
       <?php //Isokaze ?> 
       <?php $node = node_load(172); ?>
       <td>
@@ -834,8 +849,23 @@ if ($view->exposed_data['nation'] == 2):
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
       </td>
-      <?php //Cruisers prems ?>
-      <td></td>
+      <?php //Kitakami ?>
+      <?php $node = node_load(527); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/kitakami"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
+      </td>
       <?php //Fubuki ?> 
       <?php $node = node_load(213); ?>
       <td>
@@ -1210,7 +1240,24 @@ if ($view->exposed_data['nation'] == 2):
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
       </td>
       <?php //Albany ?>
-      <td></td>
+      <?php $node = node_load(521);
+      ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/albany"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
+        <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
+      </td>
       <?php //Sampson ?> 
       <?php $node = node_load(335);
       ?>
@@ -1801,8 +1848,24 @@ if ($view->exposed_data['nation'] == 2):
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
       </td>
-      <?php //Destro prems ?> 
-      <td></td>
+      <?php //Sims ?> 
+      <?php $node = node_load(553);
+      ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/sims"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
+      </td>
       <?php //Ranger ?> 
       <?php $node = node_load(453);
       ?>
@@ -2342,7 +2405,6 @@ if ($view->exposed_data['nation'] == 2):
           <a style="margin-left: 1px;" href="ship/aurora"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="clear: both;font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
-        
       </td>
       <?php //des ?> 
       <td></td>
@@ -2476,14 +2538,41 @@ if ($view->exposed_data['nation'] == 2):
       <td></td>
       <?php //cr ?> 
       <td></td>
-      <?php //Cruisers prems ?>
-      <td></td>
+      <?php //Murmanks ?>
+      <?php $node = node_load(516); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/murmansk"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="clear: both;font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
+      </td>
       <?php //des ?> 
-      <?php $node = node_load(361);
-      ?>
       <td></td>
-      <?php //Destro prems ?> 
-      <td></td>
+      <?php //Gremyashchy ?> 
+      <?php $node = node_load(547); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/gremyashchy"><strong><?php print $node->title; ?></strong></a>
+        </div>
+      </td>
       <?php //ca ?> 
       <td></td>
       <?php //ca prems ?> 
@@ -2823,3 +2912,660 @@ if ($view->exposed_data['nation'] == 2):
       
   </table>
 <?php endif; ?>  
+
+     <?php
+ // UK Tech Tree
+  if ($view->exposed_data['nation'] == 20):
+?>  
+  <table>
+    
+    <?php //table header?> 
+    <tr>
+      <td></td>
+      <td>Battleships</td>
+      <td></td>
+      <td>Cruisers</td>
+      <td></td>
+      <td>Destroyers</td>
+      <td></td>
+      <td>Carriers</td>
+      <td></td>
+    </tr>
+    
+    <?php //tier 1 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>I</td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruiser ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 1 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 1 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 2 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>II</td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cruiser ?> 
+      <td></td>
+      <?php //crus prem ?>
+      <td></td>
+      <?php //destr ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 2 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 2 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 3 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>III</td>
+      <?php //Battleship ?> 
+      <td>
+      </td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //cr prem ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 3 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 3 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 4 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>IV</td>
+      <?php //battleship ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 4 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 4 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 5 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>V</td>
+      <?php //battleship ?> 
+      <td>
+      </td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //cruiser ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //des prem ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 5 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 5 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>    
+    
+    <?php //tier 6 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>VI</td>
+      <?php //battleship ?> 
+      <td></td>
+      <?php //warspite ?> 
+      <?php $node = node_load(541);
+      ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/warspite"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
+      </td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 6 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 6 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr> 
+    
+    <?php //tier 7 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>VII</td>
+      <?php //battleship ?> 
+      <td>
+      </td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //cr pre ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 7 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 7 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr> 
+    
+    <?php //tier 8 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>VIII</td>
+      <?php //battleship ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 8 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 8 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>   
+    
+    <?php //tier 9 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>IX</td>
+      <?php //battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 9 row arrows 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+    
+    <?php //tier 9 row arrows 2?> 
+    <tr>
+      <?php //tier ?> 
+      <td></td>
+      <?php //Battleships ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //Cruisers ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //Destro ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //Carriers ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>      
+    
+    <?php //tier 10 row 1?> 
+    <tr>
+      <?php //tier ?> 
+      <td>X</td>
+      <?php //battleship ?> 
+      <td></td>
+      <?php //BSprems ?> 
+      <td></td>
+      <?php //cr ?> 
+      <td></td>
+      <?php //Cruisers prems ?>
+      <td></td>
+      <?php //des ?> 
+      <td></td>
+      <?php //Destro prems ?> 
+      <td></td>
+      <?php //ca ?> 
+      <td></td>
+      <?php //ca prems ?> 
+      <td></td>
+    </tr>
+      
+  </table>
+<?php endif; ?> 
