@@ -440,7 +440,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_credit_cost',
     'label' => 'Credit cost',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -483,7 +483,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_engines',
     'label' => 'Engines',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -527,7 +527,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_experience_cost',
     'label' => 'Experience cost',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -693,7 +693,7 @@ function wows_ct_ships_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_hulls',
     'label' => 'Hulls',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

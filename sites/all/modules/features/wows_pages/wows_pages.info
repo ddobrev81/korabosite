@@ -10,4 +10,5 @@ features[page_manager_pages][] = commander_skills
 features[page_manager_pages][] = profile_ranks
 features[page_manager_pages][] = ship_equipment
 features[page_manager_pages][] = ships
+features[page_manager_pages][] = signals
 features[page_manager_pages][] = tech_tree

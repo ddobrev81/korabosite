@@ -1,0 +1,13 @@
+name = wows_CT_flags
+core = 7.x
+package = Features
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = options
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-flags-body
+features[field_instance][] = node-flags-field_achievement
+features[field_instance][] = node-flags-field_effects
+features[node][] = flags

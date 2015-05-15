@@ -1,0 +1,14 @@
+name = wows_CT_achievements
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-achievements-body
+features[field_instance][] = node-achievements-field_icon
+features[field_instance][] = node-achievements-field_type
+features[node][] = achievements

@@ -781,6 +781,143 @@ function wows_pages_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'signals';
+  $page->task = 'page';
+  $page->admin_title = 'Signals';
+  $page->admin_description = '';
+  $page->path = 'signals';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Signals',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_signals__panel_context_9bff760a-c1ff-4d40-b5d9-15bc0d5fafba';
+  $handler->task = 'page';
+  $handler->subtask = 'signals';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'twocol_bricks';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'left_above' => NULL,
+      'right_above' => NULL,
+      'middle' => NULL,
+      'left_below' => NULL,
+      'right_below' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '29789664-44dc-4394-b2f1-f5e0c13636b8';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2d0fad59-b4d9-4dc0-9ec0-b4158bd50e9b';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'flags-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2d0fad59-b4d9-4dc0-9ec0-b4158bd50e9b';
+    $display->content['new-2d0fad59-b4d9-4dc0-9ec0-b4158bd50e9b'] = $pane;
+    $display->panels['middle'][0] = 'new-2d0fad59-b4d9-4dc0-9ec0-b4158bd50e9b';
+    $pane = new stdClass();
+    $pane->pid = 'new-634e10e9-6393-440a-8d29-385ce20898ec';
+    $pane->panel = 'top';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Signals system',
+      'body' => 'Mount signals on the ship to enhance her performance or increase the amount of credits and experience earned in the battle.
+Receive signals as an award for your battle achievements or buy signals for in-game currency.
+Mounted signals are spent in one battle. Enable auto-resupply to automatically mount the selected signals after the battle.
+Signals can be mounted on any ship in the Port. To mount signalsm select a ship and go to the Exterior screen.',
+      'format' => 'filtered_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '634e10e9-6393-440a-8d29-385ce20898ec';
+    $display->content['new-634e10e9-6393-440a-8d29-385ce20898ec'] = $pane;
+    $display->panels['top'][0] = 'new-634e10e9-6393-440a-8d29-385ce20898ec';
+    $pane = new stdClass();
+    $pane->pid = 'new-3047c524-b529-4c5e-a944-e2b2da95671f';
+    $pane->panel = 'top';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'achievements_list-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '3047c524-b529-4c5e-a944-e2b2da95671f';
+    $display->content['new-3047c524-b529-4c5e-a944-e2b2da95671f'] = $pane;
+    $display->panels['top'][1] = 'new-3047c524-b529-4c5e-a944-e2b2da95671f';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = 'new-3047c524-b529-4c5e-a944-e2b2da95671f';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['signals'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'tech_tree';
   $page->task = 'page';
   $page->admin_title = 'Tech Tree';
