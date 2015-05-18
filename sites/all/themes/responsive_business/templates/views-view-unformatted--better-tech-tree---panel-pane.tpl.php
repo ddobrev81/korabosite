@@ -1408,7 +1408,7 @@ if ($view->exposed_data['nation'] == 2):
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
           <a style="margin-left: 1px;" href="ship/sims"><strong><?php print $node->title; ?></strong></a>
         </div>
-        <div style="float:left; font-size:10px;">preorder</div>
+        <div style="float:left; font-size:12px;">preorder</div>
       </td>
       <?php //Ranger ?> 
       <?php $node = node_load(453);
