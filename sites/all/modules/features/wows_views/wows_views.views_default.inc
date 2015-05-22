@@ -157,9 +157,9 @@ function wows_views_views_default_views() {
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['table'] = 'field_data_field_nation_ent_ref';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['field'] = 'field_nation_ent_ref_target_id';
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['value'] = array(
-    3 => '3',
     1 => '1',
     2 => '2',
+    3 => '3',
   );
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nation_ent_ref_target_id']['expose']['operator_id'] = 'field_nation_ent_ref_target_id_op';
@@ -671,6 +671,7 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_effects']['table'] = 'field_data_field_effects';
   $handler->display->display_options['fields']['field_effects']['field'] = 'field_effects';
   $handler->display->display_options['fields']['field_effects']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_effects']['multi_type'] = 'ul';
   /* Field: Content: Achievement */
   $handler->display->display_options['fields']['field_achievement']['id'] = 'field_achievement';
   $handler->display->display_options['fields']['field_achievement']['table'] = 'field_data_field_achievement';
@@ -1654,16 +1655,37 @@ return substr($row->title, $cut+1);';
   );
   $handler->display->display_options['style_options']['row_class'] = 'ship-list-border-bottom';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Content: Class (field_class) */
+  $handler->display->display_options['relationships']['field_class_tid']['id'] = 'field_class_tid';
+  $handler->display->display_options['relationships']['field_class_tid']['table'] = 'field_data_field_class';
+  $handler->display->display_options['relationships']['field_class_tid']['field'] = 'field_class_tid';
+  $handler->display->display_options['relationships']['field_class_tid']['required'] = TRUE;
+  /* Field: Taxonomy term: Class icon */
+  $handler->display->display_options['fields']['field_class_icon']['id'] = 'field_class_icon';
+  $handler->display->display_options['fields']['field_class_icon']['table'] = 'field_data_field_class_icon';
+  $handler->display->display_options['fields']['field_class_icon']['field'] = 'field_class_icon';
+  $handler->display->display_options['fields']['field_class_icon']['relationship'] = 'field_class_tid';
+  $handler->display->display_options['fields']['field_class_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_class_icon']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_class_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_class_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_class_icon']['settings'] = array(
+    'image_style' => 'tech_tree_class_icon',
+    'image_link' => '',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_class_icon]  [title] ';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Nation ent ref */
   $handler->display->display_options['fields']['field_nation_ent_ref']['id'] = 'field_nation_ent_ref';
   $handler->display->display_options['fields']['field_nation_ent_ref']['table'] = 'field_data_field_nation_ent_ref';
@@ -1693,6 +1715,10 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['sorts']['field_tier_tid']['id'] = 'field_tier_tid';
   $handler->display->display_options['sorts']['field_tier_tid']['table'] = 'field_data_field_tier';
   $handler->display->display_options['sorts']['field_tier_tid']['field'] = 'field_tier_tid';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -2166,9 +2192,10 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['filters']['field_nation_tid']['table'] = 'field_data_field_nation';
   $handler->display->display_options['filters']['field_nation_tid']['field'] = 'field_nation_tid';
   $handler->display->display_options['filters']['field_nation_tid']['value'] = array(
+    1 => '1',
     2 => '2',
     3 => '3',
-    1 => '1',
+    20 => '20',
   );
   $handler->display->display_options['filters']['field_nation_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nation_tid']['expose']['operator_id'] = 'field_nation_tid_op';

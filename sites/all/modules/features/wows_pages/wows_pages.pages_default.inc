@@ -74,14 +74,14 @@ function wows_pages_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-c2a8a7ab-3135-4c04-8682-36de209d5d80';
+    $pane->pid = 'new-6438ae07-e6bc-4c40-8267-3cc141181000';
     $pane->panel = 'bottom';
     $pane->type = 'node_comment_wrapper';
     $pane->subtype = 'node_comment_wrapper';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'mode' => '1',
+      'mode' => '0',
       'comments_per_page' => '50',
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
@@ -96,9 +96,9 @@ function wows_pages_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'c2a8a7ab-3135-4c04-8682-36de209d5d80';
-    $display->content['new-c2a8a7ab-3135-4c04-8682-36de209d5d80'] = $pane;
-    $display->panels['bottom'][0] = 'new-c2a8a7ab-3135-4c04-8682-36de209d5d80';
+    $pane->uuid = '6438ae07-e6bc-4c40-8267-3cc141181000';
+    $display->content['new-6438ae07-e6bc-4c40-8267-3cc141181000'] = $pane;
+    $display->panels['bottom'][0] = 'new-6438ae07-e6bc-4c40-8267-3cc141181000';
     $pane = new stdClass();
     $pane->pid = 'new-61c0e9b8-13ed-4b73-b5db-306466113e43';
     $pane->panel = 'left_above';
@@ -786,7 +786,10 @@ function wows_pages_default_page_manager_pages() {
   $page->admin_title = 'Signals';
   $page->admin_description = '';
   $page->path = 'signals';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Signals',
@@ -875,7 +878,7 @@ function wows_pages_default_page_manager_pages() {
       'body' => 'Mount signals on the ship to enhance her performance or increase the amount of credits and experience earned in the battle.
 Receive signals as an award for your battle achievements or buy signals for in-game currency.
 Mounted signals are spent in one battle. Enable auto-resupply to automatically mount the selected signals after the battle.
-Signals can be mounted on any ship in the Port. To mount signalsm select a ship and go to the Exterior screen.',
+Signals can be mounted on any ship in the Port. To mount signals select a ship and go to the Exterior screen.',
       'format' => 'filtered_html',
       'substitute' => TRUE,
     );
@@ -963,6 +966,31 @@ Signals can be mounted on any ship in the Port. To mount signalsm select a ship 
     'relationships' => array(),
     'access' => array(
       'logic' => 'and',
+    ),
+    'metatag_panels' => array(
+      'enabled' => 1,
+      'metatags' => array(
+        'description' => array(
+          'value' => 'World of Warships Tech Trees.',
+        ),
+        'abstract' => array(
+          'value' => 'World of Warships Tech Trees.',
+        ),
+        'robots' => array(
+          'value' => array(
+            'index' => 'index',
+            'follow' => 'follow',
+            'noindex' => 0,
+            'nofollow' => 0,
+            'noarchive' => 0,
+            'nosnippet' => 0,
+            'noodp' => 0,
+            'noydir' => 0,
+            'noimageindex' => 0,
+            'notranslate' => 0,
+          ),
+        ),
+      ),
     ),
   );
   $display = new panels_display();
@@ -1052,7 +1080,7 @@ Signals can be mounted on any ship in the Port. To mount signalsm select a ship 
     $pane->panel = 'top';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => '',

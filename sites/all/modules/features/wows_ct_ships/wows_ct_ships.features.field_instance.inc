@@ -859,7 +859,7 @@ function wows_ct_ships_field_default_field_instances() {
     'bundle' => 'ships',
     'default_value' => array(
       0 => array(
-        'value' => 'Maximim speed',
+        'value' => 'Maximum speed',
       ),
     ),
     'deleted' => 0,
