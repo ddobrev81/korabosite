@@ -1,9 +1,9 @@
 name = wows_views
 core = 7.x
 package = Features
+dependencies[] = better_exposed_filters
 dependencies[] = features
 dependencies[] = menu
-dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_flipped_table
 dependencies[] = views_php
@@ -35,3 +35,4 @@ features[views_view][] = tech_tree
 features[views_view][] = torpedo_bombers
 features[views_view][] = torpedoes
 features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][views] = views

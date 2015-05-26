@@ -1255,3 +1255,41 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 .ship-list-border-bottom {
     list-style-type: none;
 }
+
+.views-widget-filter-field_nation_ent_ref_target_id .form-item div {
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#edit-nation-1 a {
+    background-image: url("/sites/default/files/Usa_0.png");
+    font-size: 0;
+    display: inline-block;
+    width: 82px;
+    height: 52px;
+}
+
+#edit-nation-2 a {
+    background-image: url("/sites/default/files/Japan.png");
+    font-size: 0;
+    display: inline-block;
+    width: 82px;
+    height: 52px;
+}
+
+#edit-nation-20 a {
+    background-image: url("/sites/default/files/Uk.png");
+    font-size: 0;
+    display: inline-block;
+    width: 82px;
+    height: 52px;
+}
+
+#edit-nation-3 a {
+    background-image: url("/sites/default/files/USSR_0.png");
+    font-size: 0;
+    display: inline-block;
+    width: 82px;
+    height: 52px;
+}
