@@ -1680,8 +1680,25 @@ if ($view->exposed_data['nation'] == 2):
       </td>
       <?php //Destro prems ?> 
       <td></td>
-      <?php //CA ?> 
-      <td></td>
+      <?php //Midway ?> 
+      <?php $node = node_load(832);
+      ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="" href="ship/midway"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
+        <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
+      </td>
       <?php //ca prems ?> 
       <td></td>
     </tr>
