@@ -63,8 +63,8 @@ if ($view->exposed_data['nation'] == 2):
       <td></td>
       <?php //BSprems ?> 
       <td></td>
-      <?php //Katori ?> 
-      <?php $node = node_load(9);
+      <?php //Hashidate ?> 
+      <?php $node = node_load(840);
       ?>
       <td>
         <div style="float:left;">
@@ -77,7 +77,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;" href="ship/katori"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;" href="ship/hashidate"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
@@ -627,8 +627,8 @@ if ($view->exposed_data['nation'] == 2):
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
         <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
       </td>
-      <?php //Kitakami ?>
-      <?php $node = node_load(527); ?>
+      <?php //Atago ?>
+      <?php $node = node_load(866); ?>
       <td>
         <div style="float:left;">
         <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
@@ -640,7 +640,7 @@ if ($view->exposed_data['nation'] == 2):
           <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
         </div>
         <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
-          <a style="margin-left: 1px;color:#E7C207;" href="ship/kitakami"><strong><?php print $node->title; ?></strong></a>
+          <a style="margin-left: 1px;color:#E7C207;" href="ship/atago"><strong><?php print $node->title; ?></strong></a>
         </div>
         <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>gd</div>
       </td>
@@ -751,8 +751,24 @@ if ($view->exposed_data['nation'] == 2):
       </td>
       <?php //Destro prems ?> 
       <td></td>
-      <?php //Carriers ?> 
-      <td></td>
+     <?php //Taiho ?> 
+      <?php $node = node_load(790); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/taiho"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
+        <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
+      </td>
       <?php //ca prems ?> 
       <td></td>
     </tr>
@@ -822,8 +838,24 @@ if ($view->exposed_data['nation'] == 2):
       </td>
       <?php //Destro prems ?> 
       <td></td>
-      <?php //Carriers ?> 
-      <td></td>
+      <?php //hakuryu ?> 
+      <?php $node = node_load(860); ?>
+      <td>
+        <div style="float:left;">
+        <?php $tier = taxonomy_term_load($node->field_tier['und'][0]['tid']);
+          print $tier->field_roman_letter['und'][0]['value'];
+        ?>
+        </div>
+        <div style="float:right;">
+          <?php $class = taxonomy_term_load($node->field_class['und'][0]['tid']); ?>
+          <img src="<?php print image_style_url('tech_tree_class_icon', $class->field_class_icon['und'][0]['filename']); ?>">
+        </div>
+        <div style="clear: both;margin-left: auto; margin-right: auto; width: 60%;">
+          <a style="margin-left: 1px;" href="ship/hakuryu"><strong><?php print $node->title; ?></strong></a>
+        </div>
+        <div style="float:left; font-size:10px;"><?php print $node->field_credit_cost['und'][0]['value']; ?>cr</div>
+        <div style="float:right; font-size:10px;"><?php print $node->field_experience_cost['und'][0]['value'];?> exp</div>
+      </td>
       <?php //ca prems ?> 
       <td></td>
     </tr>
