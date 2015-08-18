@@ -1,6 +1,7 @@
 name = wows_CT_module_hulls
 core = 7.x
 package = Features
+dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = image
 dependencies[] = number

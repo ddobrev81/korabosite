@@ -1,0 +1,76 @@
+<?php
+
+function wargaming_stats_schema() {
+  $schema = array();
+  $schema['wargaming_stats_user_data'] = array(
+    'description' => 'Table for storing WG account IDs.',
+    'fields' => array(
+      'uid' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'wg_nickname' => array(
+        'type' => 'varchar',
+         'length' => 255,
+        'not null' => TRUE,
+      ),
+      'wg_account_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('uid'),
+  );
+  return $schema;
+}
+
+function wargaming_stats_enable() {
+  /*variable_set('WG_URL', 'http://api.worldoftanks.eu/wot/account/');
+  variable_set('WG_Application_ID', '44ed33c9a96585c84da3f845495bc5e5');
+
+  drupal_install_schema('wargaming_stats_user_data');
+
+  //create a vocabulaty with tank names as terms so we know all tank names ands ids(stored as term description)
+  $tank_names = (object) array(
+        'name' => 'Tank names',
+        'description' => 'This vocabulary holds tank names and their IDs',
+        'machine_name' => 'tank_names',
+  );
+  taxonomy_vocabulary_save($tank_names);*/
+}
+
+function wargaming_stats_install() {
+
+  variable_set('WG_URL', 'http://api.worldoftanks.eu/wot/');
+  variable_set('WG_Application_ID', '44ed33c9a96585c84da3f845495bc5e5');
+
+  drupal_install_schema('wargaming_stats_user_data');
+
+  //create a vocabulaty with tank names as terms so we know all tank names ands ids(stored as term description)
+  /*$tank_names = (object) array(
+        'name' => 'Tank names',
+        'description' => 'This vocabulary holds tank names and their IDs',
+        'machine_name' => 'tank_names',
+  );
+  taxonomy_vocabulary_save($tank_names);*/
+
+  //call the CURL funtion to get us latest [tank_name] => [tank_id] from WG
+  /* $tank_terms = get_tank_names();
+    //then add the terms to the vocab
+    $tanks_vocab = taxonomy_vocabulary_machine_name_load('tank_names');
+    foreach ($tank_terms as $name => $id) {
+    $terms = (object) array(
+    'name' => $name,
+    'description' => $id,
+    'vid' => $tanks_vocab->vid,
+    );
+    taxonomy_term_save($terms);
+    } */
+}
+
+function wargaming_stats_uninstall() {
+  drupal_uninstall_schema('wargaming_stats_user_data');
+}
+

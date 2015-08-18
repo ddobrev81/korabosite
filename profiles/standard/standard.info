@@ -24,6 +24,9 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
+;custom
+dependencies[] = wargaming_stats
+
 ; Information added by Drupal.org packaging script on 2015-06-17
 version = "7.38"
 project = "drupal"

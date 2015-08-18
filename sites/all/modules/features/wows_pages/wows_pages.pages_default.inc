@@ -176,25 +176,6 @@ function wows_pages_default_page_manager_handlers() {
     $display->content['new-61e41fec-68f2-47c0-9945-a2ae07d82e97'] = $pane;
     $display->panels['left_below'][2] = 'new-61e41fec-68f2-47c0-9945-a2ae07d82e97';
     $pane = new stdClass();
-    $pane->pid = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
-    $pane->panel = 'left_below';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'engines-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
-    $display->content['new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea'] = $pane;
-    $display->panels['left_below'][3] = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
-    $pane = new stdClass();
     $pane->pid = 'new-3cc7076e-a2df-4ec3-aa73-4657a561ed46';
     $pane->panel = 'right_above';
     $pane->type = 'views_panes';
@@ -308,6 +289,25 @@ function wows_pages_default_page_manager_handlers() {
     $pane->uuid = '4631658d-0f25-4772-a78a-3fade685bb20';
     $display->content['new-4631658d-0f25-4772-a78a-3fade685bb20'] = $pane;
     $display->panels['right_below'][4] = 'new-4631658d-0f25-4772-a78a-3fade685bb20';
+    $pane = new stdClass();
+    $pane->pid = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $pane->panel = 'right_below';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'engines-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = '3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
+    $display->content['new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea'] = $pane;
+    $display->panels['right_below'][5] = 'new-3d776fc4-813d-414c-a39b-0d4fa7bfb4ea';
     $pane = new stdClass();
     $pane->pid = 'new-9ad5869b-b526-4025-bdfa-7b6d34e11baf';
     $pane->panel = 'top';
@@ -917,6 +917,96 @@ Signals can be mounted on any ship in the Port. To mount signals select a ship a
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['signals'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'stats';
+  $page->task = 'page';
+  $page->admin_title = 'Stats';
+  $page->admin_description = '';
+  $page->path = 'stats/%region/%name';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array(
+    'region' => array(
+      'id' => 2,
+      'identifier' => 'region',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
+    ),
+    'name' => array(
+      'id' => 1,
+      'identifier' => 'name',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 1,
+      ),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_stats__panel_context_1f0bd67e-6b2d-46d1-9cc5-31a1fd0aab84';
+  $handler->task = 'page';
+  $handler->subtask = 'stats';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'flexible';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'center' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Player stats';
+  $display->uuid = '438e634c-09f8-4e07-afdc-6404414f931c';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-a507dde5-ccfe-4908-8301-69378a35c707';
+    $pane->panel = 'center';
+    $pane->type = 'stats';
+    $pane->subtype = 'stats';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'a507dde5-ccfe-4908-8301-69378a35c707';
+    $display->content['new-a507dde5-ccfe-4908-8301-69378a35c707'] = $pane;
+    $display->panels['center'][0] = 'new-a507dde5-ccfe-4908-8301-69378a35c707';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['stats'] = $page;
 
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */

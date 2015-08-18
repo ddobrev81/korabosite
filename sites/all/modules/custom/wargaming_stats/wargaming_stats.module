@@ -1,0 +1,266 @@
+<?php
+
+function wargaming_stats_menu() {
+  $items = array();
+  $items['admin/config/services/wargaming_stats'] = array(
+    'title' => 'Wargaming stats configuration',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('wargaming_stats_admin'),
+    'access arguments' => array('access administration pages'),
+  );
+  return $items;
+}
+
+function wargaming_stats_admin($form, &$form_state) {
+  $form = array();
+
+  $form['wargaming_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Wargaming URL'),
+    '#default_value' => variable_get('WG_URL', ''),
+    '#required' => TRUE,
+    '#description' => t('Wargaming url looks like this: http://api.worldoftanks.eu/wot/account/'),
+  );
+  $form['application_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Personal Application ID.'),
+    '#default_value' => variable_get('WG_Application_ID', 'demo'),
+    '#required' => TRUE,
+    '#description' => t('Refer to: https://eu.wargaming.net/developers/applications/'),
+  );
+  $form['#validate'][] = 'wargaming_stats_admin_validate';
+  $form['#submit'][] = 'wargaming_stats_admin_submit';
+  return system_settings_form($form);
+}
+
+function wargaming_stats_admin_validate(&$form_state) {
+//  if (!valid_url($form_state['wargaming_url'])) {
+//    form_set_error('WG URL', 'Not a valid URL.');
+//  }
+}
+
+function wargaming_stats_admin_submit(&$form_state) {
+  variable_set('WG_URL', $form_state['wargaming_url']['#value']);
+  variable_set('WG_Application_ID', $form_state['application_id']['#value']);
+}
+
+function wargaming_stats_block_info() {
+  $blocks = array();
+  $blocks['wg_stats'] = array(
+    'info' => t('Wargaming Stats Block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+
+  return $blocks;
+}
+
+function wargaming_stats_form($form, &$form_state) {
+  $form['get_wg_name'] = array(
+    '#type' => 'textfield',
+    '#size' => 15,
+    '#title' => t("Player name"),
+  );
+  $form['region'] = array(
+    '#type' => 'select',
+    '#title' => t('Region'),
+    '#options' => drupal_map_assoc(array('EU', 'US', 'ASIA', 'RU')),
+    '#default_value' => 'EU',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  return $form;
+}
+
+function wargaming_stats_form_validate($form, &$form_state) {
+  $wg_name = $form_state['values']['get_wg_name'];
+  if (empty($wg_name)) {
+    form_set_error('get_wg_name', t('Not a valid WG player name!'));
+  }
+}
+
+function wargaming_stats_form_submit($form, &$form_state) {
+  $name = $form_state['values']['get_wg_name'];
+  $region = $form_state['values']['region'];
+  $form_state['redirect'] = 'stats/'.$region.'/'.$name;
+}
+
+function wargaming_stats_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'wg_stats':
+      $block['subject'] = t('Check your stats'); 
+      $block['content'] = drupal_get_form('wargaming_stats_form');
+      break;
+  }
+
+  return $block;
+}
+
+function _wargaming_stats_curl_request($type, $args) {
+  switch ($type) {
+    case 'get_player_id':
+      $options = array(
+        CURLOPT_URL => variable_get('WG_URL') . "/account/list/?application_id=" . variable_get('WG_Application_ID') . "&language=en&search=" . $args['player_name'] . "&type=exact",
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $ch_error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return $result;
+
+
+      break;
+      
+    case 'get_player_data_by_id':
+      $options = array(
+        CURLOPT_URL => variable_get('WG_URL') . "/account/info/?application_id=" . variable_get('WG_Application_ID') . "&language=en&account_id=" . $args['player_id'],
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $ch_error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return $result;
+      break;
+
+    default:
+      break;
+  }
+}
+
+function _wargaming_stats_get_user_id($player_name) {
+  //check if we have a match in our database, if not ask WG, then save the data in out database
+  $player_name = strtolower($player_name);
+  
+  $query = "SELECT wg_account_id FROM main_wargaming_stats_user_data WHERE wg_nickname = :s";
+  $query_result = db_query($query, array(':s' => $player_name));
+  if ($query_result && $query_result->rowCount() > 0) {
+    $wg_id = $query_result->fetchAssoc();
+    $wg_id = $wg_id['wg_account_id'];
+    return $wg_id;
+  }
+  else {
+    $args['player_name'] = $player_name;
+    if ($result = _wargaming_stats_curl_request('get_player_id', $args)) {
+      $result = json_decode($result, TRUE);
+      if ($result['meta']['count'] == 0) {
+        drupal_set_message('Player not found!', 'error');
+        drupal_goto();
+      }
+      if ($result['meta']['count'] == 1) {
+        $wg_name = strtolower($result['data'][0]['nickname']);
+        $wg_id = $result['data'][0]['account_id'];
+        $insert_query = db_insert('wargaming_stats_user_data')
+            ->fields(array(
+              'wg_nickname' => $wg_name,
+              'wg_account_id' => $wg_id,
+            ))
+            ->execute();
+        return $wg_id;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_info().
+ *
+ */
+function wargaming_stats_node_info() {
+  return array(
+    'node_example' => array(
+      'name' => t('Wargaming stats records'),
+      'base' => 'wargaming_stats',
+      'description' => t('Content type to hold our data.'),
+      'title_label' => t('Title'),
+      'locked' => TRUE,
+    ),
+  );
+}
+
+//WG app ID =  44ed33c9a96585c84da3f845495bc5e5   name = Drupal
+
+function wargaming_stats_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'ctools') && ($plugin == 'content_types')) {
+    return 'plugins/content_types';
+  }
+}
+
+function wargaming_stats_theme() {
+  return array(
+    'stats_block' => array(
+      'render element' => 'data',
+      'template' => 'plugins/templates/stats_template'
+    ),
+  );
+}

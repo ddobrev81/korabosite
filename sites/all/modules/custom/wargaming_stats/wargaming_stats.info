@@ -1,0 +1,3 @@
+name = Wargaming stats
+description = Provides integration for Wargaming's stats service
+core = 7.x
