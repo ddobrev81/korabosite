@@ -27,6 +27,7 @@ function wargaming_stats_schema() {
 }
 
 function wargaming_stats_enable() {
+   drupal_install_schema('wargaming_stats_user_data');
   /*variable_set('WG_URL', 'http://api.worldoftanks.eu/wot/account/');
   variable_set('WG_Application_ID', '44ed33c9a96585c84da3f845495bc5e5');
 

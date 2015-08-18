@@ -31,6 +31,10 @@ function stats_block() {
   else {
     drupal_set_message(t("Sum Tin Wong!"), 'warning');
   }
+  if ($player_data['statistics']['battles'] < 1) {
+    drupal_set_message('Player has 0 battles!', 'error');
+    drupal_goto();
+  }
 //  dpm($player_data);
   
   
