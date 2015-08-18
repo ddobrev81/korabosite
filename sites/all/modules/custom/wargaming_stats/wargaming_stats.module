@@ -13,21 +13,64 @@ function wargaming_stats_menu() {
 
 function wargaming_stats_admin($form, &$form_state) {
   $form = array();
-
-  $form['wargaming_url'] = array(
+  
+  $form['eu'] = array(
+  '#type' => 'fieldset', 
+  '#title' => t('EU region settings'), 
+  );
+  $form['eu']['wargaming_url_eu'] = array(
     '#type' => 'textfield',
     '#title' => t('Wargaming URL'),
-    '#default_value' => variable_get('WG_URL', ''),
+    '#default_value' => variable_get('WG_URL_EU', ''),
     '#required' => TRUE,
-    '#description' => t('Wargaming url looks like this: http://api.worldoftanks.eu/wot/account/'),
+    '#description' => t('Wargaming url looks like this: https://api.worldofwarships.com/wows/'),
   );
-  $form['application_id'] = array(
+  $form['eu']['application_id_eu'] = array(
     '#type' => 'textfield',
     '#title' => t('Your Personal Application ID.'),
-    '#default_value' => variable_get('WG_Application_ID', 'demo'),
+    '#default_value' => variable_get('WG_Application_ID_EU', 'demo'),
     '#required' => TRUE,
     '#description' => t('Refer to: https://eu.wargaming.net/developers/applications/'),
   );
+  
+  $form['na'] = array(
+  '#type' => 'fieldset', 
+  '#title' => t('NA region settings'), 
+  );
+  $form['na']['wargaming_url_na'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Wargaming URL'),
+    '#default_value' => variable_get('WG_URL_NA', ''),
+    '#required' => TRUE,
+    '#description' => t('Wargaming url looks like this: http://api.worldoftanks.eu/wot/account/'),
+  );
+  $form['na']['application_id_na'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Personal Application ID.'),
+    '#default_value' => variable_get('WG_Application_ID_NA', 'demo'),
+    '#required' => TRUE,
+    '#description' => t('Refer to: https://eu.wargaming.net/developers/applications/'),
+  );
+  
+  $form['asia'] = array(
+  '#type' => 'fieldset', 
+  '#title' => t('ASIA region settings'), 
+  );
+  $form['asia']['wargaming_url_asia'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Wargaming URL'),
+    '#default_value' => variable_get('WG_URL_ASIA', ''),
+    '#required' => TRUE,
+    '#description' => t('Wargaming url looks like this: http://api.worldoftanks.eu/wot/account/'),
+  );
+  $form['asia']['application_id_asia'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Personal Application ID.'),
+    '#default_value' => variable_get('WG_Application_ID_ASIA', 'demo'),
+    '#required' => TRUE,
+    '#description' => t('Refer to: https://eu.wargaming.net/developers/applications/'),
+  );
+  
   $form['#validate'][] = 'wargaming_stats_admin_validate';
   $form['#submit'][] = 'wargaming_stats_admin_submit';
   return system_settings_form($form);
@@ -40,8 +83,14 @@ function wargaming_stats_admin_validate(&$form_state) {
 }
 
 function wargaming_stats_admin_submit(&$form_state) {
-  variable_set('WG_URL', $form_state['wargaming_url']['#value']);
-  variable_set('WG_Application_ID', $form_state['application_id']['#value']);
+  variable_set('WG_URL_EU', $form_state['eu']['wargaming_url_eu']['#value']);
+  variable_set('WG_Application_ID_EU', $form_state['eu']['application_id_eu']['#value']);
+  
+  variable_set('WG_URL_NA', $form_state['na']['wargaming_url_na']['#value']);
+  variable_set('WG_Application_ID_NA', $form_state['na']['application_id_na']['#value']);
+  
+  variable_set('WG_URL_ASIA', $form_state['asia']['wargaming_url_asia']['#value']);
+  variable_set('WG_Application_ID_ASIA', $form_state['asia']['application_id_asia']['#value']);
 }
 
 function wargaming_stats_block_info() {
@@ -63,7 +112,7 @@ function wargaming_stats_form($form, &$form_state) {
   $form['region'] = array(
     '#type' => 'select',
     '#title' => t('Region'),
-    '#options' => drupal_map_assoc(array('EU', 'US', 'ASIA', 'RU')),
+    '#options' => drupal_map_assoc(array('EU', 'NA', 'ASIA', 'RU')),
     '#default_value' => 'EU',
   );
   $form['submit'] = array(
@@ -100,10 +149,12 @@ function wargaming_stats_block_view($delta = '') {
 }
 
 function _wargaming_stats_curl_request($type, $args) {
+   $region_name = 'WG_URL_'.$args['region'];
+   $region_id = 'WG_Application_ID_'.$args['region'];
   switch ($type) {
     case 'get_player_id':
       $options = array(
-        CURLOPT_URL => variable_get('WG_URL') . "/account/list/?application_id=" . variable_get('WG_Application_ID') . "&language=en&search=" . $args['player_name'] . "&type=exact",
+        CURLOPT_URL => variable_get($region_name) . "/account/list/?application_id=" . variable_get($region_id) . "&language=en&search=" . $args['player_name'] . "&type=exact",
         // Return web page.
         CURLOPT_RETURNTRANSFER => TRUE,
         // Don't return headers.
@@ -150,7 +201,7 @@ function _wargaming_stats_curl_request($type, $args) {
       
     case 'get_player_data_by_id':
       $options = array(
-        CURLOPT_URL => variable_get('WG_URL') . "/account/info/?application_id=" . variable_get('WG_Application_ID') . "&language=en&account_id=" . $args['player_id'],
+        CURLOPT_URL => variable_get($region_name) . "/account/info/?application_id=" . variable_get($region_id) . "&language=en&account_id=" . $args['player_id'],
         // Return web page.
         CURLOPT_RETURNTRANSFER => TRUE,
         // Don't return headers.
@@ -198,7 +249,7 @@ function _wargaming_stats_curl_request($type, $args) {
   }
 }
 
-function _wargaming_stats_get_user_id($player_name) {
+function _wargaming_stats_get_user_id($player_name, $region) {
   //check if we have a match in our database, if not ask WG, then save the data in out database
   $player_name = strtolower($player_name);
   
@@ -211,8 +262,10 @@ function _wargaming_stats_get_user_id($player_name) {
   }
   else {
     $args['player_name'] = $player_name;
+    $args['region'] = $region;
     if ($result = _wargaming_stats_curl_request('get_player_id', $args)) {
       $result = json_decode($result, TRUE);
+      dpm($result);
       if ($result['meta']['count'] == 0) {
         drupal_set_message('Player not found!', 'error');
         drupal_goto();

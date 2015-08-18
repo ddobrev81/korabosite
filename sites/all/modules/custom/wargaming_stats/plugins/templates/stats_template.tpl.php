@@ -1,13 +1,14 @@
 <?php  ?>
 <?php 
 //dpm($data);
-$win_percent = round($data['#content']['statistics']['pvp']['wins'] / $data['#content']['statistics']['battles'], 2) * 100;
-$loss_percent = round($data['#content']['statistics']['pvp']['losses'] / $data['#content']['statistics']['battles'], 2) * 100;
-$draw_percent = round($data['#content']['statistics']['pvp']['draws'] / $data['#content']['statistics']['battles'], 2) * 100;
-$battles_survived = round($data['#content']['statistics']['pvp']['survived_battles'] / $data['#content']['statistics']['battles'], 2) * 100;
-$wins_survived = round($data['#content']['statistics']['pvp']['survived_wins'] / $data['#content']['statistics']['battles'], 2) * 100;
-$average_dmg = round($data['#content']['statistics']['pvp']['damage_dealt'] / $data['#content']['statistics']['battles'], 0);
-$average_exp = round($data['#content']['statistics']['pvp']['xp'] / $data['#content']['statistics']['battles'], 0);
+$total = $data['#content']['statistics']['pvp']['wins'] + $data['#content']['statistics']['pvp']['losses'] + $data['#content']['statistics']['pvp']['draws'];
+$win_percent = round($data['#content']['statistics']['pvp']['wins'] / $total, 2) * 100;
+$loss_percent = round($data['#content']['statistics']['pvp']['losses'] / $total, 2) * 100;
+$draw_percent = round($data['#content']['statistics']['pvp']['draws'] / $total, 2) * 100;
+$battles_survived = round($data['#content']['statistics']['pvp']['survived_battles'] / $total, 2) * 100;
+$wins_survived = round($data['#content']['statistics']['pvp']['survived_wins'] / $total, 2) * 100;
+$average_dmg = round($data['#content']['statistics']['pvp']['damage_dealt'] / $total, 0);
+$average_exp = round($data['#content']['statistics']['pvp']['xp'] / $total, 0);
 if ($data['#content']['statistics']['pvp']['main_battery']['shots'] > 0) {
   $main_bat_hit_ratio = round($data['#content']['statistics']['pvp']['main_battery']['hits'] / $data['#content']['statistics']['pvp']['main_battery']['shots'], 2) * 100;
 } else {
@@ -67,7 +68,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
     <tr>
       <td>
         <b>
-        Losses:
+        Losses (%):
         </b> 
       </td>
       <td>
@@ -80,7 +81,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
     <tr>
       <td>
         <b>
-        Draws:
+        Draws (%):
         </b> 
       </td>
       <td>
@@ -93,7 +94,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
     <tr>
       <td>
         <b>
-        Battles survived:
+        Battles survived (%):
         </b> 
       </td>
       <td>
@@ -106,7 +107,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
     <tr>
       <td>
         <b>
-        Wins survived:
+        Wins survived (%):
         </b> 
       </td>
       <td>
@@ -239,7 +240,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
     <tr>
       <td>
         <b>
-        Planes killed:
+        Planes destroyed:
         </b> 
       </td>
       <td>

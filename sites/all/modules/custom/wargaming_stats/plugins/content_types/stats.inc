@@ -20,9 +20,11 @@ function stats_block() {
   
   $region = arg(1);
   $player_name = arg(2);
-  $player_id = _wargaming_stats_get_user_id($player_name);
+  $player_id = _wargaming_stats_get_user_id($player_name, $region);
 //  dpm($player_id);
   $args['player_id'] = $player_id;
+  $args['region'] = $region;
+  
   $data = _wargaming_stats_curl_request('get_player_data_by_id', $args);
   $data = json_decode($data, TRUE);
   if ($data['status'] == 'ok' && $data['meta']['count'] === 1) {
