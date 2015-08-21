@@ -1,29 +1,8 @@
 <?php  ?>
 <?php 
+// MOVE THIS LOGIC TO THE PLUGIN
 //dpm($data);
-$total = $data['#content']['statistics']['pvp']['wins'] + $data['#content']['statistics']['pvp']['losses'] + $data['#content']['statistics']['pvp']['draws'];
-$win_percent = round($data['#content']['statistics']['pvp']['wins'] / $total, 2) * 100;
-$loss_percent = round($data['#content']['statistics']['pvp']['losses'] / $total, 2) * 100;
-$draw_percent = round($data['#content']['statistics']['pvp']['draws'] / $total, 2) * 100;
-$battles_survived = round($data['#content']['statistics']['pvp']['survived_battles'] / $total, 2) * 100;
-$wins_survived = round($data['#content']['statistics']['pvp']['survived_wins'] / $total, 2) * 100;
-$average_dmg = round($data['#content']['statistics']['pvp']['damage_dealt'] / $total, 0);
-$average_exp = round($data['#content']['statistics']['pvp']['xp'] / $total, 0);
-if ($data['#content']['statistics']['pvp']['main_battery']['shots'] > 0) {
-  $main_bat_hit_ratio = round($data['#content']['statistics']['pvp']['main_battery']['hits'] / $data['#content']['statistics']['pvp']['main_battery']['shots'], 2) * 100;
-} else {
-  $main_bat_hit_ratio = 0;
-}
-if ($data['#content']['statistics']['pvp']['second_battery']['shots'] > 0) {
-  $sec_bat_hit_ratio = round($data['#content']['statistics']['pvp']['second_battery']['hits'] / $data['#content']['statistics']['pvp']['second_battery']['shots'], 2) * 100;
-} else {
-  $sec_bat_hit_ratio = 0;
-}
-if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
-  $torpedoes_hit_ratio = round($data['#content']['statistics']['pvp']['torpedoes']['hits'] / $data['#content']['statistics']['pvp']['torpedoes']['shots'], 2) * 100; 
-} else {
-  $torpedoes_hit_ratio = 0;
-}
+
 ?>
 <div style="float:left;width:45%;">
   <h2>Player stats</h2>
@@ -36,7 +15,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['nickname'];
+          print $data['#content']['player_stats']['nickname'];
         ?>
       </td>
     </tr>
@@ -48,7 +27,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['battles'];
+          print $data['#content']['player_stats']['total'];
         ?>
       </td>
     </tr>
@@ -60,8 +39,8 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['wins'];
-          print '&nbsp&nbsp<b style="color:green">(&nbsp' .$win_percent.' %)</b>';
+          print $data['#content']['player_stats']['wins'];
+          print '&nbsp&nbsp<b style="color:green">(&nbsp' .$data['#content']['player_stats']['win_percent'].' %)</b>';
         ?>
       </td>
     </tr>
@@ -73,8 +52,8 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['losses'];
-          print '&nbsp&nbsp<b style="color:red">(&nbsp' .$loss_percent.' %)</b>';
+          print $data['#content']['player_stats']['losses'];
+          print '&nbsp&nbsp<b style="color:red">(&nbsp' .$data['#content']['player_stats']['loss_percent'].' %)</b>';
         ?>
       </td>
     </tr>
@@ -86,8 +65,8 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['draws'];
-          print '&nbsp&nbsp<b>(&nbsp' .$draw_percent.' %)</b>';
+          print $data['#content']['player_stats']['draws'];
+          print '&nbsp&nbsp(&nbsp' .$data['#content']['player_stats']['draw_percent'].' %)';
         ?>
       </td>
     </tr>
@@ -99,8 +78,8 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['survived_battles'];
-          print '&nbsp&nbsp<b>(&nbsp' .$battles_survived.' %)</b>';
+          print $data['#content']['player_stats']['survived_battles'];
+          print '&nbsp&nbsp(&nbsp' .$data['#content']['player_stats']['battles_survived_percent'].' %)';
         ?>
       </td>
     </tr>
@@ -112,8 +91,8 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['survived_wins'];
-          print '&nbsp&nbsp<b>(&nbsp' .$wins_survived.' %)</b>';
+          print $data['#content']['player_stats']['survived_wins'];
+          print '&nbsp&nbsp(&nbsp' .$data['#content']['player_stats']['wins_survived_percent'].' %)';
         ?>
       </td>
     </tr>
@@ -125,7 +104,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['frags'];
+          print $data['#content']['player_stats']['frags'];
         ?>
       </td>
     </tr>
@@ -137,7 +116,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['max_frags_battle'];
+          print $data['#content']['player_stats']['max_frags_battle'];
         ?>
       </td>
     </tr>
@@ -149,7 +128,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['capture_points'];
+          print $data['#content']['player_stats']['capture_points'];
         ?>
       </td>
     </tr>
@@ -161,7 +140,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['damage_dealt'];
+          print $data['#content']['player_stats']['damage_dealt'];
         ?>
       </td>
     </tr>
@@ -173,7 +152,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $average_dmg;
+          print $data['#content']['player_stats']['average_dmg'];
         ?>
       </td>
     </tr>
@@ -185,7 +164,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['max_damage_dealt'];
+          print $data['#content']['player_stats']['max_damage_dealt'];
         ?>
       </td>
     </tr>
@@ -197,7 +176,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['xp'];
+          print $data['#content']['player_stats']['xp'];
         ?>
       </td>
     </tr>
@@ -209,7 +188,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $average_exp;
+          print $data['#content']['player_stats']['average_exp'];
         ?>
       </td>
     </tr>
@@ -221,7 +200,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['max_xp'];
+          print $data['#content']['player_stats']['max_xp'];
         ?>
       </td>
     </tr>
@@ -233,7 +212,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['distance'].' km';
+          print $data['#content']['player_stats']['distance'].' km';
         ?>
       </td>
     </tr>
@@ -245,7 +224,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['planes_killed'];
+          print $data['#content']['player_stats']['planes_killed'];
         ?>
       </td>
     </tr>
@@ -263,7 +242,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['main_battery']['shots'];
+          print $data['#content']['player_stats']['main_battery']['shots'];
         ?>
       </td>
     </tr>
@@ -275,7 +254,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['main_battery']['hits'];
+          print $data['#content']['player_stats']['main_battery']['hits'];
         ?>
       </td>
     </tr>
@@ -287,7 +266,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $main_bat_hit_ratio.'%';
+          print $data['#content']['player_stats']['main_battery']['main_bat_hit_ratio'].'%';
         ?>
       </td>
     </tr>
@@ -299,26 +278,15 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['main_battery']['frags'];
+          print $data['#content']['player_stats']['main_battery']['frags'];
         ?>
       </td>
     </tr>
-    <tr>
-      <td>
-        <b>
-        Max frags in battle:
-        </b> 
-      </td>
-      <td>
-        <?php
-          print $data['#content']['statistics']['pvp']['main_battery']['max_frags_battle'];
-        ?>
-      </td>
   </table>
 </div>
 <div>
   <h2>Secondary Battery stats</h2>
-  <table style="width:auto;">
+  <table style="width:100%;">
     <tr>
       <td>
         <b>
@@ -327,7 +295,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['second_battery']['shots'];
+          print $data['#content']['player_stats']['second_battery']['shots'];
         ?>
       </td>
     </tr>
@@ -339,7 +307,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['second_battery']['hits'];
+          print $data['#content']['player_stats']['second_battery']['hits'];
         ?>
       </td>
     </tr>
@@ -351,7 +319,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $sec_bat_hit_ratio.'%';
+          print $data['#content']['player_stats']['second_battery']['sec_bat_hit_ratio'].'%';
         ?>
       </td>
     </tr>
@@ -363,26 +331,15 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['second_battery']['frags'];
+          print $data['#content']['player_stats']['second_battery']['frags'];
         ?>
       </td>
     </tr>
-    <tr>
-      <td>
-        <b>
-        Max frags in battle:
-        </b> 
-      </td>
-      <td>
-        <?php
-          print $data['#content']['statistics']['pvp']['second_battery']['max_frags_battle'];
-        ?>
-      </td>
   </table>
 </div>
 <div>
   <h2>Torpedoes stats</h2>
-  <table style="width:auto;">
+  <table style="width:100%;">
     <tr>
       <td>
         <b>
@@ -391,7 +348,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['torpedoes']['shots'];
+          print $data['#content']['player_stats']['torpedoes']['shots'];
         ?>
       </td>
     </tr>
@@ -403,7 +360,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['torpedoes']['hits'];
+          print $data['#content']['player_stats']['torpedoes']['hits'];
         ?>
       </td>
     </tr>
@@ -415,7 +372,7 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $torpedoes_hit_ratio.'%';
+          print $data['#content']['player_stats']['torpedoes']['torpedoes_hit_ratio'].'%';
         ?>
       </td>
     </tr>
@@ -427,49 +384,87 @@ if ($data['#content']['statistics']['pvp']['torpedoes']['shots'] > 0) {
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['torpedoes']['frags'];
+          print $data['#content']['player_stats']['torpedoes']['frags'];
         ?>
       </td>
     </tr>
-    <tr>
-      <td>
-        <b>
-        Max frags in battle:
-        </b> 
-      </td>
-      <td>
-        <?php
-          print $data['#content']['statistics']['pvp']['torpedoes']['max_frags_battle'];
-        ?>
-      </td>
   </table>
 </div>
-<div>
-  <h2>Aircraft stats</h2>
-  <table style="width:auto;">
-    <tr>
+</div>
+<p>
+<div style="clear:left;">
+  <h2>Ships</h2>
+  <table>
+    <thead>
       <td>
         <b>
-        Frags:
-        </b> 
+          Name
+        </b>
+      </td>
+      <td>
+        <b>
+          Wins (%)
+        </b>
+      </td>
+      <td>
+        <b>
+          Losses (%)
+        </b>
+      </td>
+      <td>
+        <b>
+          Average damage
+        </b>
+      </td>
+      <td>
+        <b>
+          Average exp
+        </b>
+      </td>
+      <td>
+        <b>
+          Battles
+        </b>
+      </td>
+    </thead>
+    <tbody>
+    <?php foreach($data['#content']['player_ships'] as $name => $ship) { ?>
+    <tr>
+      <td>
+        <?php
+          $link = strtolower(str_replace(' ', '-', str_replace('.', '', $name)));
+          print '<a href="/ship/'.$link.'">'.$name.'</a>';
+        ?>
       </td>
       <td>
         <?php
-          print $data['#content']['statistics']['pvp']['aircraft']['frags'];
+          print $ship['wins'];
+          print '&nbsp&nbsp<b style="color:green">(&nbsp' .$ship['wins_ratio'].' %)</b>';
+        ?>
+      </td>
+      <td>
+        <?php
+          print $ship['losses'];
+          print '&nbsp&nbsp<b style="color:red">(&nbsp' .$ship['losses_ratio'].' %)</b>';
+        ?>
+      </td>
+      <td>
+        <?php
+          print $ship['average_damage'];
+        ?>
+      </td>
+      <td>
+        <?php
+          print $ship['average_xp'];
+        ?>
+      </td>
+      <td>
+        <?php
+          print $ship['battles'];
         ?>
       </td>
     </tr>
-    <tr>
-      <td>
-        <b>
-        Max frags in battle:
-        </b> 
-      </td>
-      <td>
-        <?php
-          print $data['#content']['statistics']['pvp']['aircraft']['max_frags_battle'];
-        ?>
-      </td>
+    <?php } ?>
+    </tbody>
   </table>
-</div>   
 </div>

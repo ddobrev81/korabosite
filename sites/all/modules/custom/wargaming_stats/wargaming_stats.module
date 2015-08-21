@@ -8,6 +8,12 @@ function wargaming_stats_menu() {
     'page arguments' => array('wargaming_stats_admin'),
     'access arguments' => array('access administration pages'),
   );
+  $items['wargaming_stats/prefix'] = array(
+    'title' => 'Wargaming stats configuration',
+    'page callback' => 'wargaming_stats_prefix',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
   return $items;
 }
 
@@ -194,7 +200,7 @@ function _wargaming_stats_curl_request($type, $args) {
       }
       // Close curl resource to free up system resources.
       curl_close($ch);
-      return $result;
+      return json_decode($result, TRUE);
 
 
       break;
@@ -241,9 +247,101 @@ function _wargaming_stats_curl_request($type, $args) {
       }
       // Close curl resource to free up system resources.
       curl_close($ch);
-      return $result;
+      return json_decode($result, TRUE);
       break;
 
+    case 'get_ship_name':
+      $options = array(
+        CURLOPT_URL => variable_get($region_name) . "/encyclopedia/ships/?application_id=" . variable_get($region_id) . "&language=en&ship_id=" . $args['ship_id'] . "&fields=name",
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return json_decode($result, TRUE);
+
+
+      break;  
+      
+    case 'get_player_ship_data':
+      $options = array(
+        CURLOPT_URL => variable_get($region_name) . "/ships/stats/?application_id=" . variable_get($region_id) . "&language=en&account_id=" . $args['player_id'],
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return json_decode($result, TRUE);
+
+
+      break;  
+      
     default:
       break;
   }
@@ -253,7 +351,7 @@ function _wargaming_stats_get_user_id($player_name, $region) {
   //check if we have a match in our database, if not ask WG, then save the data in out database
   $player_name = strtolower($player_name);
   
-  $query = "SELECT wg_account_id FROM main_wargaming_stats_user_data WHERE wg_nickname = :s";
+  $query = "SELECT wg_account_id FROM wargaming_stats_user_data WHERE wg_nickname = :s";
   $query_result = db_query($query, array(':s' => $player_name));
   if ($query_result && $query_result->rowCount() > 0) {
     $wg_id = $query_result->fetchAssoc();
@@ -264,8 +362,7 @@ function _wargaming_stats_get_user_id($player_name, $region) {
     $args['player_name'] = $player_name;
     $args['region'] = $region;
     if ($result = _wargaming_stats_curl_request('get_player_id', $args)) {
-      $result = json_decode($result, TRUE);
-      dpm($result);
+      //dpm($result);
       if ($result['meta']['count'] == 0) {
         drupal_set_message('Player not found!', 'error');
         drupal_goto();
@@ -316,4 +413,81 @@ function wargaming_stats_theme() {
       'template' => 'plugins/templates/stats_template'
     ),
   );
+}
+
+function _wargaming_stats_get_ship_name_by_id($ship_id, $region = 'EU') {
+  $query = "SELECT wg_ship_name FROM wargaming_stats_ship_data WHERE wg_ship_id = :i";
+  $query_result = db_query($query, array(':i' => $ship_id));
+  if ($query_result && $query_result->rowCount() > 0) {
+    $wg_ship_name = $query_result->fetchAssoc();
+    $wg_ship_name = $wg_ship_name['wg_ship_name'];
+    return $wg_ship_name;
+  }
+  else {
+    $args['ship_id'] = $ship_id;
+    $args['region'] = $region;
+    if ($result = _wargaming_stats_curl_request('get_ship_name', $args)) {
+      //dpm($result);
+      if ($result['meta']['count'] == 0) {
+        drupal_set_message('Ship not found!', 'error');
+        drupal_goto();
+      }
+      if ($result['meta']['count'] == 1 && $result['status'] == 'ok') {
+        $first = reset($result['data']);
+        $wg_ship_name = $first['name'];
+        $insert_query = db_insert('wargaming_stats_ship_data')
+            ->fields(array(
+              'wg_ship_name' => $wg_ship_name,
+              'wg_ship_id' => $ship_id,
+            ))
+            ->execute();
+        return $wg_ship_name;
+      }
+    }
+  }
+}
+
+function wargaming_stats_prefix() {
+  // current table prefix to be removed
+  $prefix = "main_";
+  // echo generated statments rather then run them
+  $pretend = FALSE;
+
+  /////////////////////////////////////////////////////////////////////
+
+  $table_list = db_query("SHOW TABLES");
+  $prefix = strtolower($prefix);
+
+  foreach ($table_list as $r) {
+    $r = (array) $r;
+    $table_old = strtolower(current($r));
+
+    // check for $prefix on this table
+    if (substr($table_old, 0, strlen($prefix)) == $prefix) {
+      $table_new = substr($table_old, strlen($prefix));
+
+      // first drop $table_new incase it already exists
+      $clean_sql = "DROP TABLE IF EXISTS {$table_new}";
+      // rename prefix table to standard/nonprefix name
+      $rename_sql = "RENAME TABLE {$table_old} TO {$table_new}";
+
+      if ($pretend) {
+        print $clean_sql . "\n";
+        print $rename_sql . "\n";
+      }
+      else {
+        if (!db_query($clean_sql)) {
+          die("Aborting - $clean_sql \n");
+        }
+        if (!db_query($rename_sql)) {
+          die("Aborting - $rename_sql \n");
+        }
+      }
+    }
+    else {
+      print "$table_old skipped \n";
+    }
+  }
+
+  print "\nDone \n\n";
 }
