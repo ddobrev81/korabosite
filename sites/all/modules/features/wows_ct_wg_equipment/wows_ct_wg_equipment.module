@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wows_CT_wg_equipment feature.
+ */
+
+include_once 'wows_ct_wg_equipment.features.inc';

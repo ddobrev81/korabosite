@@ -232,7 +232,7 @@
 </div>
 <div style="float:right;width:45%;">
 <div>
-  <h2>Main Battery stats</h2>
+  <h2>Main Battery</h2>
   <table style="width:100%;">
     <tr>
       <td>
@@ -285,7 +285,7 @@
   </table>
 </div>
 <div>
-  <h2>Secondary Battery stats</h2>
+  <h2>Secondary Battery</h2>
   <table style="width:100%;">
     <tr>
       <td>
@@ -338,7 +338,7 @@
   </table>
 </div>
 <div>
-  <h2>Torpedoes stats</h2>
+  <h2>Torpedoes</h2>
   <table style="width:100%;">
     <tr>
       <td>

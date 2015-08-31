@@ -92,7 +92,6 @@ function wows_views_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -759,7 +758,6 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -907,6 +905,11 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['filters']['type']['value'] = array(
     'module_flight_control' => 'module_flight_control',
   );
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -1288,7 +1291,7 @@ return substr($row->title, $cut+1);';
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-      'empty_column' => 0,
+      'empty_column' => 1,
     ),
     'field_hangar_capacity' => array(
       'sortable' => 0,
@@ -1380,6 +1383,8 @@ return substr($row->title, $cut+1);';
   $handler->display->display_options['fields']['field_armor']['id'] = 'field_armor';
   $handler->display->display_options['fields']['field_armor']['table'] = 'field_data_field_armor';
   $handler->display->display_options['fields']['field_armor']['field'] = 'field_armor';
+  $handler->display->display_options['fields']['field_armor']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_armor']['empty_zero'] = TRUE;
   /* Field: Content: Hangar Capacity */
   $handler->display->display_options['fields']['field_hangar_capacity']['id'] = 'field_hangar_capacity';
   $handler->display->display_options['fields']['field_hangar_capacity']['table'] = 'field_data_field_hangar_capacity';
@@ -2581,6 +2586,205 @@ return substr($row->title, $cut+1);';
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $export['torpedoes'] = $view;
+
+  $view = new view();
+  $view->name = 'wg_achievements_list';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'WG Achievements list';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Achievements';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_achievement_image' => 'field_achievement_image',
+    'title' => 'title',
+    'body' => 'body',
+    'field_count_per_battle' => 'field_count_per_battle',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_achievement_image' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-center',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-center',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'body' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-center',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_count_per_battle' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-center',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Field: Content: Achievement image */
+  $handler->display->display_options['fields']['field_achievement_image']['id'] = 'field_achievement_image';
+  $handler->display->display_options['fields']['field_achievement_image']['table'] = 'field_data_field_achievement_image';
+  $handler->display->display_options['fields']['field_achievement_image']['field'] = 'field_achievement_image';
+  $handler->display->display_options['fields']['field_achievement_image']['label'] = '';
+  $handler->display->display_options['fields']['field_achievement_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_achievement_image']['alter']['text'] = '<img src="[field_achievement_image-value]" heigth="80" width="80">';
+  $handler->display->display_options['fields']['field_achievement_image']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Name';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  /* Field: Content: Count per battle */
+  $handler->display->display_options['fields']['field_count_per_battle']['id'] = 'field_count_per_battle';
+  $handler->display->display_options['fields']['field_count_per_battle']['table'] = 'field_data_field_count_per_battle';
+  $handler->display->display_options['fields']['field_count_per_battle']['field'] = 'field_count_per_battle';
+  $handler->display->display_options['fields']['field_count_per_battle']['label'] = 'Obtainable per battle';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'wg_achievements' => 'wg_achievements',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['wg_achievements_list'] = $view;
+
+  $view = new view();
+  $view->name = 'wg_equipment_list';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'WG Equipment list';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Equipment list';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Field: Content: Equipment_image */
+  $handler->display->display_options['fields']['field_equipment_image']['id'] = 'field_equipment_image';
+  $handler->display->display_options['fields']['field_equipment_image']['table'] = 'field_data_field_equipment_image';
+  $handler->display->display_options['fields']['field_equipment_image']['field'] = 'field_equipment_image';
+  $handler->display->display_options['fields']['field_equipment_image']['label'] = '';
+  $handler->display->display_options['fields']['field_equipment_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_equipment_image']['alter']['text'] = '<img src="[field_equipment_image-value]">';
+  $handler->display->display_options['fields']['field_equipment_image']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Name';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'Description';
+  /* Field: Content: Equipment_effect */
+  $handler->display->display_options['fields']['field_equipment_effect']['id'] = 'field_equipment_effect';
+  $handler->display->display_options['fields']['field_equipment_effect']['table'] = 'field_data_field_equipment_effect';
+  $handler->display->display_options['fields']['field_equipment_effect']['field'] = 'field_equipment_effect';
+  $handler->display->display_options['fields']['field_equipment_effect']['label'] = 'Effect';
+  $handler->display->display_options['fields']['field_equipment_effect']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_equipment_effect']['multi_type'] = 'ul';
+  /* Field: Content: Equipment_price */
+  $handler->display->display_options['fields']['field_equipment_price']['id'] = 'field_equipment_price';
+  $handler->display->display_options['fields']['field_equipment_price']['table'] = 'field_data_field_equipment_price';
+  $handler->display->display_options['fields']['field_equipment_price']['field'] = 'field_equipment_price';
+  $handler->display->display_options['fields']['field_equipment_price']['label'] = 'Price (credits)';
+  $handler->display->display_options['fields']['field_equipment_price']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Sort criterion: Content: Equipment_price (field_equipment_price) */
+  $handler->display->display_options['sorts']['field_equipment_price_value']['id'] = 'field_equipment_price_value';
+  $handler->display->display_options['sorts']['field_equipment_price_value']['table'] = 'field_data_field_equipment_price';
+  $handler->display->display_options['sorts']['field_equipment_price_value']['field'] = 'field_equipment_price_value';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'wg_equipment' => 'wg_equipment',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $export['wg_equipment_list'] = $view;
 
   return $export;
 }

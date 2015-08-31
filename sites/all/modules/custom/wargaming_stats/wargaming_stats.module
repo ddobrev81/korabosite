@@ -14,12 +14,47 @@ function wargaming_stats_menu() {
     'access arguments' => array('access administration pages'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['wargaming_stats/achievements-create'] = array(
+    'title' => 'Create achievements',
+    'page callback' => 'wargaming_stats_create_achievements',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['wargaming_stats/achievements-update'] = array(
+    'title' => 'Update achievements',
+    'page callback' => 'wargaming_stats_update_achievements',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['wargaming_stats/equipment-create'] = array(
+    'title' => 'Create achievements',
+    'page callback' => 'wargaming_stats_create_equipment',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['wargaming_stats/equipment-update'] = array(
+    'title' => 'Update achievements',
+    'page callback' => 'wargaming_stats_update_equipment',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
   return $items;
 }
 
 function wargaming_stats_admin($form, &$form_state) {
   $form = array();
-  
+  $form['content'] = array(
+  '#type' => 'fieldset', 
+  '#title' => t('Content mamagement'), 
+  );
+  $form['content']['links'] = array(
+    '#type' => 'item',
+    '#title' => t('Achievements'),
+    '#markup' => '<p><a href="/wargaming_stats/achievements-create">Create achievements</a></p>'
+    . '<p><a href="/wargaming_stats/achievements-update">Update achievements</a></p>'
+    . '<p><a href="/wargaming_stats/equipment-create">Create equipment</a></p>'
+    . '<p><a href="/wargaming_stats/equipment-update">Update equipment</a></p>',
+  );
   $form['eu'] = array(
   '#type' => 'fieldset', 
   '#title' => t('EU region settings'), 
@@ -342,6 +377,98 @@ function _wargaming_stats_curl_request($type, $args) {
 
       break;  
       
+    case 'get_achievements_list':
+      $options = array(
+        CURLOPT_URL => variable_get($region_name) . "/encyclopedia/achievements/?application_id=" . variable_get($region_id) . "&language=en",
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return json_decode($result, TRUE);
+
+
+      break; 
+      
+    case 'get_equipment_list':
+      $options = array(
+        CURLOPT_URL => variable_get($region_name) . "/encyclopedia/upgrades/?application_id=" . variable_get($region_id) . "&language=en",
+        // Return web page.
+        CURLOPT_RETURNTRANSFER => TRUE,
+        // Don't return headers.
+        CURLOPT_HEADER => FALSE,
+        // Follow redirects.
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        // Handle all encodings.
+        CURLOPT_ENCODING => "",
+        // Set referer on redirect.
+        CURLOPT_AUTOREFERER => TRUE,
+        // Timeout on response.
+        CURLOPT_TIMEOUT => 60,
+        // Stop after 10 redirects.
+        CURLOPT_MAXREDIRS => 10,
+        // Disabled SSL Cert checks.
+        CURLOPT_SSL_VERIFYPEER => FALSE,
+      );
+
+      // Create curl resource.
+      $ch = curl_init();
+
+      curl_setopt_array($ch, $options);
+
+      // $output contains the output string.
+      $result = curl_exec($ch);
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if ($http_code == 404) {
+        watchdog('wg_stats', 'Can not find WG web service. Path to service may be incorrect.', array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+
+      if ($error = curl_errno($ch) != 0) {
+        watchdog('wg_stats', 'WG CURL error: ' . $error, array(), WATCHDOG_ALERT);
+        return FALSE;
+      }
+      // Close curl resource to free up system resources.
+      curl_close($ch);
+      return json_decode($result, TRUE);
+
+
+      break; 
+      
     default:
       break;
   }
@@ -491,3 +618,142 @@ function wargaming_stats_prefix() {
 
   print "\nDone \n\n";
 }
+
+function wargaming_stats_create_achievements() {
+  // 1. get the WG data for achievements
+  // 2. create nodes
+  $args['region'] = 'EU';
+  $achievements_data = _wargaming_stats_curl_request('get_achievements_list', $args);
+  // Create node.
+  if ($achievements_data['status'] == 'ok') {
+    global $user;
+    foreach ($achievements_data['data']['battle'] as $achievement) {
+//    dpm($achievement);
+      $values = array(
+        'type' => 'wg_achievements',
+        'uid' => $user->uid,
+        'status' => 1,
+        'comment' => 1,
+        'promote' => 0,
+      );
+      $entity = entity_create('node', $values);
+      $entity_wrapper = entity_metadata_wrapper('node', $entity);
+
+      $entity_wrapper->title->set($achievement['name']);
+      $entity_wrapper->body->set(array('value' => $achievement['description']));
+      $entity_wrapper->field_count_per_battle->set($achievement['count_per_battle']);
+      $entity_wrapper->field_achievement_image->set($achievement['image']);
+      $entity_wrapper->field_achievement_id->set($achievement['achievement_id']);
+      if ($achievement['reward'] == "TRUE") {
+        $entity_wrapper->field_reward->set(TRUE);
+      }
+      else {
+        $entity_wrapper->field_reward->set(FALSE);
+      }
+      $entity_wrapper->field_achievement_type->set($achievement['type']);
+      $entity_wrapper->field_achievement_subtype->set($achievement['sub_type']);
+      //$entity_wrapper->save();
+    }
+  }
+
+  drupal_set_message('Achievement nodes created!');
+  drupal_goto();
+}
+
+function wargaming_stats_update_achievements() {
+  //get the WG data for achievements
+  // get all achievements nodes
+  // update fields if is nessesary
+  // @TODO look if the checked item is removed from PAPI
+ 
+  $args['region'] = 'EU';
+  $achievements_data = _wargaming_stats_curl_request('get_achievements_list', $args);
+//  dpm($achievements_data);
+  
+  
+  // Create node.
+  global $user;
+  if ($achievements_data['status'] == 'ok') {
+    foreach ($achievements_data['data']['battle'] as $achievement) {
+      // find the node
+//      dpm($achievement);
+      $query = new EntityFieldQuery();
+
+      $query
+          ->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'wg_achievements')
+          ->fieldCondition('field_achievement_id', 'value', $achievement['achievement_id'], '=');
+      if ($result = $query->execute()) {
+        $node_id = array_keys($result['node']);
+      }
+      $entity = entity_load('node', $node_id);
+//      dpm($entity);
+      if ($achievement['name'] !== $entity[$node_id]->title) {
+        $entity[$node_id]->title = $achievement['name'];
+      }
+      if ($achievement['description'] !== $entity[$node_id]->body['und'][0]['value']) {
+        $entity[$node_id]->body['und'][0]['value'] = $achievement['name'];
+      }
+      if ($achievement['count_per_battle'] !== $entity[$node_id]->field_count_per_battle['und'][0]['value']) {
+        $entity[$node_id]->field_count_per_battle['und'][0]['value'] = $achievement['count_per_battle'];
+      }
+      if ($achievement['image'] !== $entity[$node_id]->field_achievement_image['und'][0]['value']) {
+        $entity[$node_id]->field_achievement_image['und'][0]['value'] = $achievement['image'];
+      }
+      if ($achievement['achievement_id'] !== $entity[$node_id]->field_achievement_id['und'][0]['value']) {
+        $entity[$node_id]->field_achievement_id['und'][0]['value'] = $achievement['achievement_id'];
+      }
+      if ($achievement['reward'] !== $entity[$node_id]->field_reward['und'][0]['value']) {
+        $entity[$node_id]->field_reward['und'][0]['value'] = $achievement['reward'];
+      }
+      if ($achievement['type'] !== $entity[$node_id]->field_achievement_type['und'][0]['value']) {
+        $entity[$node_id]->field_achievement_type['und'][0]['value'] = $achievement['type'];
+      }
+      if ($achievement['sub_type'] !== $entity[$node_id]->field_achievement_subtype['und'][0]['value']) {
+        $entity[$node_id]->field_achievement_subtype['und'][0]['value'] = $achievement['sub_type'];
+      }
+      entity_save('node', $entity);
+      drupal_goto();
+    }
+  }
+  drupal_goto();
+}
+
+function wargaming_stats_create_equipment() {
+  $args['region'] = 'EU';
+  $equipment_data = _wargaming_stats_curl_request('get_equipment_list', $args);
+  // Create node.
+  if ($equipment_data['status'] == 'ok') {
+    global $user;
+    foreach ($equipment_data['data'] as $id => $equipment) {
+      $values = array(
+        'type' => 'wg_equipment',
+        'uid' => $user->uid,
+        'status' => 1,
+        'comment' => 1,
+        'promote' => 0,
+      );
+      $entity = entity_create('node', $values);
+      $entity_wrapper = entity_metadata_wrapper('node', $entity);
+
+      $entity_wrapper->title->set($equipment['name']);
+      $entity_wrapper->body->set(array('value' => $equipment['description']));
+      $entity_wrapper->field_equipment_image->set($equipment['image']);
+      $entity_wrapper->field_equipment_tag->set($equipment['tag']);
+      $entity_wrapper->field_equipment_price->set($equipment['price_credit']);
+      $entity_wrapper->	field_equipment_id->set((string)$equipment['upgrade_id']);
+      $val = array();
+      foreach ($equipment['profile'] as $effect) {
+        foreach ($effect as $key => $value) {
+          $val[] = $key.' : '.$value;
+        }
+      }
+      $entity_wrapper->field_equipment_effect->set($val);
+      $entity_wrapper->save();
+    }
+  }
+  drupal_set_message('Equipment nodes created!');
+  drupal_goto();
+}
+
+// @TODO Update function

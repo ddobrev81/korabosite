@@ -98,6 +98,7 @@ function wows_views_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Commander Skills');
@@ -105,7 +106,6 @@ function wows_views_menu_default_menu_links() {
   t('Home');
   t('Ships');
   t('Tech Tree');
-
 
   return $menu_links;
 }

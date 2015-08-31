@@ -34,5 +34,7 @@ features[views_view][] = skills_listing
 features[views_view][] = tech_tree
 features[views_view][] = torpedo_bombers
 features[views_view][] = torpedoes
+features[views_view][] = wg_achievements_list
+features[views_view][] = wg_equipment_list
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][views] = views

@@ -132,7 +132,7 @@ function _build_table_player_ships($player_id, $region) {
   $ship_data = _wargaming_stats_curl_request('get_player_ship_data', $args);
   //dpm($ship_data,'$ship_data');
   foreach ($ship_data['data'][$player_id] as $ship) {
-    dpm($ship);
+    //dpm($ship);
     if ($ship['pvp']['battles'] < 1) {
       continue;
     }
@@ -145,5 +145,11 @@ function _build_table_player_ships($player_id, $region) {
     $render_data['player_ships'][$ship_name]['average_xp'] = round($ship['pvp']['xp'] / $ship['battles'], 0);
     $render_data['player_ships'][$ship_name]['average_damage'] = round($ship['pvp']['damage_dealt'] / $ship['battles'], 0);
   }
+  //sort the array by battles
+  $battles = array();
+  foreach ($render_data['player_ships'] as $key => $row) {
+    $battles[$key] = $row['battles'];
+  }
+  array_multisort($battles, SORT_DESC, $render_data['player_ships']);
   return $render_data;
 }

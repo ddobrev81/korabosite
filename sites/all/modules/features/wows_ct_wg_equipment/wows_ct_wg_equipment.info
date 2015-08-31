@@ -1,0 +1,15 @@
+name = wows_CT_wg_equipment
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = number
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-wg_equipment-body
+features[field_instance][] = node-wg_equipment-field_equipment_effect
+features[field_instance][] = node-wg_equipment-field_equipment_id
+features[field_instance][] = node-wg_equipment-field_equipment_image
+features[field_instance][] = node-wg_equipment-field_equipment_price
+features[field_instance][] = node-wg_equipment-field_equipment_tag
+features[node][] = wg_equipment

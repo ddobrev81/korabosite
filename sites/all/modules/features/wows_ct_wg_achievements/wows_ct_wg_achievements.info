@@ -1,0 +1,17 @@
+name = wows_CT_wg_achievements
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
+dependencies[] = wows_field_bases
+features[features_api][] = api:2
+features[field_instance][] = node-wg_achievements-body
+features[field_instance][] = node-wg_achievements-field_achievement_id
+features[field_instance][] = node-wg_achievements-field_achievement_image
+features[field_instance][] = node-wg_achievements-field_achievement_subtype
+features[field_instance][] = node-wg_achievements-field_achievement_type
+features[field_instance][] = node-wg_achievements-field_count_per_battle
+features[field_instance][] = node-wg_achievements-field_reward
+features[node][] = wg_achievements
