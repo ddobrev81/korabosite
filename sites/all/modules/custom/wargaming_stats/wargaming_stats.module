@@ -652,7 +652,7 @@ function wargaming_stats_create_achievements() {
       }
       $entity_wrapper->field_achievement_type->set($achievement['type']);
       $entity_wrapper->field_achievement_subtype->set($achievement['sub_type']);
-      //$entity_wrapper->save();
+      $entity_wrapper->save();
     }
   }
 
