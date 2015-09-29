@@ -4,8 +4,54 @@
 //dpm($data);
 
 ?>
+<br>
+<table style="width:100%;border-style: none;">
+  <tr>
+    <td style="width:25%; font-size:40px;text-align: center; border-top: none; border-right: none;">
+        <b>
+        <?php
+          print $data['#content']['player_stats']['total'];
+        ?>
+        </b> 
+      </td>
+      <td style="width:25%; font-size:40px;text-align: center; border-top: none; border-right: none;">
+        <b>
+        <?php
+          print $data['#content']['player_stats']['win_percent'].' %';
+        ?>
+        </b> 
+      </td>
+      <td style="width:25%; font-size:40px;text-align: center; border-top: none; border-right: none;">
+        <b>
+        <?php
+          print $data['#content']['player_stats']['average_exp'];
+        ?>
+        </b> 
+      <td style="width:25%; font-size:40px;text-align: center; border-top: none; border-right: none;">
+        <b>
+        <?php
+          print $data['#content']['player_stats']['average_dmg'];
+        ?>
+        </b> 
+      </td>
+  </tr>
+    <tr>
+      <td style="width:25%; text-align: center; border-top: none; border-right: none;">
+        Battles
+      </td>
+      <td style="width:25%; text-align: center; border-top: none; border-right: none;">
+        Wins(%)
+      </td>
+      <td style="width:25%; text-align: center; border-top: none; border-right: none;">
+        Avg exp
+      </td>
+      <td style="width:25%; text-align: center; border-top: none; border-right: none;">
+        Avg dmg
+      </td>
+    </tr>  
+</table>
 <div style="float:left;width:45%;">
-  <h2>Player stats</h2>
+  <h2>Player Stats</h2>
   <table style="width:100%;">
     <tr>
       <td>

@@ -95,13 +95,24 @@ function _build_table_player_stats($player_data, $player_id) {
   $render_data['player_stats']['torpedoes']['frags'] = $stats_data['statistics']['pvp']['torpedoes']['frags'];
   // Calculated stats
   $render_data['player_stats']['total'] = $stats_data['statistics']['pvp']['wins'] + $stats_data['statistics']['pvp']['losses'] + $stats_data['statistics']['pvp']['draws'];
-  $render_data['player_stats']['win_percent'] = round($stats_data['statistics']['pvp']['wins'] / $render_data['player_stats']['total'], 2) * 100;
-  $render_data['player_stats']['loss_percent'] = round($stats_data['statistics']['pvp']['losses'] / $render_data['player_stats']['total'], 2) * 100;
-  $render_data['player_stats']['draw_percent'] = round($stats_data['statistics']['pvp']['draws'] / $render_data['player_stats']['total'], 2) * 100;
-  $render_data['player_stats']['battles_survived_percent'] = round($stats_data['statistics']['pvp']['survived_battles'] / $render_data['player_stats']['total'], 2) * 100;
-  $render_data['player_stats']['wins_survived_percent'] = round($stats_data['statistics']['pvp']['survived_wins'] / $render_data['player_stats']['total'], 2) * 100;
-  $render_data['player_stats']['average_dmg'] = round($stats_data['statistics']['pvp']['damage_dealt'] / $render_data['player_stats']['total'], 0);
-  $render_data['player_stats']['average_exp'] = round($stats_data['statistics']['pvp']['xp'] / $render_data['player_stats']['total'], 0);
+  if ($render_data['player_stats']['total'] == 0) {
+    $render_data['player_stats']['win_percent'] = 0;
+    $render_data['player_stats']['loss_percent'] = 0;
+    $render_data['player_stats']['draw_percent'] = 0;
+    $render_data['player_stats']['battles_survived_percent'] = 0;
+    $render_data['player_stats']['wins_survived_percent'] = 0;
+    $render_data['player_stats']['average_dmg'] = 0;
+    $render_data['player_stats']['average_exp'] = 0;
+  }
+  else {
+    $render_data['player_stats']['win_percent'] = round($stats_data['statistics']['pvp']['wins'] / $render_data['player_stats']['total'], 2) * 100;
+    $render_data['player_stats']['loss_percent'] = round($stats_data['statistics']['pvp']['losses'] / $render_data['player_stats']['total'], 2) * 100;
+    $render_data['player_stats']['draw_percent'] = round($stats_data['statistics']['pvp']['draws'] / $render_data['player_stats']['total'], 2) * 100;
+    $render_data['player_stats']['battles_survived_percent'] = round($stats_data['statistics']['pvp']['survived_battles'] / $render_data['player_stats']['total'], 2) * 100;
+    $render_data['player_stats']['wins_survived_percent'] = round($stats_data['statistics']['pvp']['survived_wins'] / $render_data['player_stats']['total'], 2) * 100;
+    $render_data['player_stats']['average_dmg'] = round($stats_data['statistics']['pvp']['damage_dealt'] / $render_data['player_stats']['total'], 0);
+    $render_data['player_stats']['average_exp'] = round($stats_data['statistics']['pvp']['xp'] / $render_data['player_stats']['total'], 0);
+  }
   if ($stats_data['statistics']['pvp']['main_battery']['shots'] > 0) {
     $render_data['player_stats']['main_battery']['main_bat_hit_ratio'] = round($stats_data['statistics']['pvp']['main_battery']['hits'] / $stats_data['statistics']['pvp']['main_battery']['shots'], 2) * 100;
   }
